@@ -1,19 +1,180 @@
 body {
+  background: #FF8533;
   font-family: "Helvetica";
   text-align: center;
-  padding: 50px 20px 0;
-  background: #f4f4f7;
-  color: #444;
-  margin: 0;
 }
 
-h1 {
+#content {
+  background: white;
+  border-radius: 25px;
+  margin: 50px 100px 50px;
+  padding: 50px 50px 50px;
+}
+
+#header h1 {
   font-size: 65px;
-  line-height: 1.2em;
-  border-bottom: #CCC solid 1px;
-  padding: 20px 0;
+  /*background: white;*/
 }
 
-h3 {
-  font-weight: 300;
+#intro-text > p {
+  font-size: 22px;
+}
+
+.search-box {
+  display: inline-block;
+}
+
+.search-box input {
+  border: 1px solid #666;
+  border-radius: 300px;
+  font-size: 28px;
+  height: 50px;
+  width:225px;
+  margin: 10px 10px 10px;
+  text-align: center;
+}
+
+#go-button {
+  /*background-color: red;*/
+  border: 1px solid #666;
+  border-radius: 300px;
+  font-size: 30px;
+  height: 50px;
+  width: 100px;
+}
+
+#go-button:hover {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+
+#results {
+  background: white;
+  border-radius: 25px;
+  margin: 50px 100px 50px;
+  padding: 50px 50px 50px;
+}
+
+.tabs input[type=radio] {
+    display:none;
+}
+
+.tabs {
+    width: 650px;
+    float: none;
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 75px auto;
+}
+
+.tabs li{
+    float: left;
+}
+
+.tabs label {
+    display: block;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: normal;
+    background: #2c3e50;
+    cursor: pointer;
+    position: relative;
+}
+
+.tabs label:hover {
+    background: #3498db;
+}
+
+.tab-content {
+    z-index: 2;
+    display: none;
+    left: 0;
+    width: 100%;
+    font-size: 20px;
+    line-height: 140%;
+    padding: 15px;
+    position: absolute;
+    box-sizing: border-box;
+    border:1px solid #ccc;
+    border-top: 10px solid #08C;
+    background-color:#ffffff;
+}
+
+[id^=tab]:checked + label {
+    background: #08C;
+    color: white;
+    top: 0;
+}
+
+[id^=tab]:checked ~ [id^=tab-content] {
+    display: block;
+}
+
+/*.tabs-container {
+  list-style: none;
+}
+
+.tabs-container li {
+  display: inline;
+}
+
+.tabs-container li a {
+  color: black;
+  float: left;
+  display: block;
+  padding: 4px 10px;
+  margin-left: -1px;
+  position: relative;
+  left: 1px;
+  text-decoration: none;
+}
+
+.tabs-container li a:hover {
+  background: #ccc;
+}
+
+.tabs-container:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}*/
+
+@media (max-width: 700px){
+
+  #content {
+    margin: 0 10px 10px;
+    padding: 10px 10px 10px;
+  }
+
+  #header h1 {
+    font-size: 40px;
+  }
+
+  #intro-text > p {
+    font-size: 18px;
+  }
+
+  .search-box input {
+    font-size: 14px;
+    height: 40px;
+    width:200px;
+    margin: 10px 10px 10px;
+  }
+
+  #go-button {
+    font-size: 14px;
+    height: 25px;
+    width: 40px;
+  }
+
+  #results {
+    margin: 10px 10px 0;
+    padding: 10px 10px 10px;
+  }
+
 }
