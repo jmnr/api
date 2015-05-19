@@ -15,8 +15,8 @@
   <li><a href="" target="_blank"></a></li>
   <li><a href="" target="_blank"></a></li>
 
-</ul>    
- <div>
+</ul>
+ </div>
 
 <script>
 function AjaxGetRequest(searchurl,callback){
@@ -38,6 +38,7 @@ function AjaxGetRequest(searchurl,callback){
 
 var displayresults = function(responseT) {
   var list = document.getElementsByTagName('a');
+  alert(list);
   for (var i =0; i<list.length; i++) {
            list[i].innerHTML  =   responseT[i].webTitle.toString();
            list[i].setAttribute('href', responseT[i].webUrl.toString());
@@ -46,7 +47,7 @@ var displayresults = function(responseT) {
 
 
 var makeurl = function(searchterm, year) {
-  var url = 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + PUT API KEY with quotes here;
+  var url = 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&q=' + searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' + "&show-fields=all";
   return url;
 };
 
