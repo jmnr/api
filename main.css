@@ -1,14 +1,23 @@
 body {
-  background: #FBC28B;
+  background: #FF8533;
   font-family: "Helvetica";
-  margin: 100px;
-  padding: 20px 0px 100px;
   text-align: center;
 }
 
-h1 {
+#content {
+  background: white;
+  border-radius: 25px;
+  margin: 50px 100px 50px;
+  padding: 100px 100px 100px;
+}
+
+#header h1 {
   font-size: 65px;
   /*background: white;*/
+}
+
+#intro-text > p {
+  font-size: 22px;
 }
 
 .search-box {
@@ -28,6 +37,7 @@ h1 {
 #go-button {
   /*background-color: red;*/
   border: 1px solid #666;
+  border-radius: 300px;
   font-size: 30px;
   height: 50px;
   width: 100px;
@@ -40,8 +50,30 @@ h1 {
 
 @media (max-width: 700px){
 
-  h1 {
-    font-size: 45px;
+  #content {
+    margin: 0 10px 0;
+    padding: 10px 10px 10px;
+  }
+
+  #header h1 {
+    font-size: 40px;
+  }
+
+  #intro-text > p {
+    font-size: 18px;
+  }
+
+  .search-box input {
+    font-size: 14px;
+    height: 40px;
+    width:200px;
+    margin: 10px 10px 10px;
+  }
+
+  #go-button {
+    font-size: 14px;
+    height: 25px;
+    width: 40px;
   }
 
 }
