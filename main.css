@@ -1,24 +1,47 @@
-<<<<<<< HEAD
-html, body {
-  background: grey;
-=======
 body {
+  background: #FBC28B;
   font-family: "Helvetica";
+  margin: 100px;
+  padding: 20px 0px 100px;
   text-align: center;
-  padding: 50px 20px 0;
-  background: #f4f4f7;
-  color: #444;
-  margin: 0;
 }
 
 h1 {
   font-size: 65px;
-  line-height: 1.2em;
-  border-bottom: #CCC solid 1px;
-  padding: 20px 0;
+  /*background: white;*/
 }
 
-h3 {
-  font-weight: 300;
->>>>>>> a87c5878a81a97c36ba65ac21365fbea1df59f33
+.search-box {
+  display: inline-block;
+}
+
+.search-box input {
+  border: 1px solid #666;
+  border-radius: 300px;
+  font-size: 28px;
+  height: 50px;
+  width:225px;
+  margin: 10px 10px 10px;
+  text-align: center;
+}
+
+#go-button {
+  /*background-color: red;*/
+  border: 1px solid #666;
+  font-size: 30px;
+  height: 50px;
+  width: 100px;
+}
+
+#go-button:hover {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+
+@media (max-width: 700px){
+
+  h1 {
+    font-size: 45px;
+  }
+
 }
