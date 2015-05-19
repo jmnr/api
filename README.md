@@ -15,5 +15,5 @@ Today we worked on a concpet to deisgn a piece of software that uses teh guardia
 + webpage page html and css 
 + webpage js
 
-Tomorrow we will work on adding content to the mix.
+Tomorrow we will work on adding content and maybe even some tests to the mix.
 
