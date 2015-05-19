@@ -55,7 +55,94 @@ body {
   padding: 50px 50px 50px;
 }
 
+.tabs input[type=radio] {
+    display:none;
+}
 
+.tabs {
+    width: 650px;
+    float: none;
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 75px auto;
+}
+
+.tabs li{
+    float: left;
+}
+
+.tabs label {
+    display: block;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: normal;
+    background: #2c3e50;
+    cursor: pointer;
+    position: relative;
+}
+
+.tabs label:hover {
+    background: #3498db;
+}
+
+.tab-content {
+    z-index: 2;
+    display: none;
+    left: 0;
+    width: 100%;
+    font-size: 20px;
+    line-height: 140%;
+    padding: 15px;
+    position: absolute;
+    box-sizing: border-box;
+    border:1px solid #ccc;
+    border-top: 10px solid #08C;
+    background-color:#ffffff;
+}
+
+[id^=tab]:checked + label {
+    background: #08C;
+    color: white;
+    top: 0;
+}
+
+[id^=tab]:checked ~ [id^=tab-content] {
+    display: block;
+}
+
+/*.tabs-container {
+  list-style: none;
+}
+
+.tabs-container li {
+  display: inline;
+}
+
+.tabs-container li a {
+  color: black;
+  float: left;
+  display: block;
+  padding: 4px 10px;
+  margin-left: -1px;
+  position: relative;
+  left: 1px;
+  text-decoration: none;
+}
+
+.tabs-container li a:hover {
+  background: #ccc;
+}
+
+.tabs-container:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}*/
 
 @media (max-width: 700px){
 
