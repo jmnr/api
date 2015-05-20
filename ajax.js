@@ -52,10 +52,17 @@ gapi.runAjax = function() {
   var year = document.getElementById('yearInput').value.toString();
   var requestUrl = gapi.makeurl(searchterm, year);
   gapi.AjaxGetRequest(requestUrl, gapi.displayResults);
+  return requestUrl;
 };
 
 gapi.shorten = function(string) {
   return string.length > 25 ? string.substring(0, 25) + "..." : string;
+};
+
+gapi.clearInputs = function(){
+  document.getElementById('searchTermInput').value = "";
+  document.getElementById('yearInput').value = "";
+  
 };
 
 //////
@@ -99,3 +106,5 @@ var runAjax = function() {
   AjaxGetRequest(url1, displayresults);
 };
 */
+
+

@@ -37,13 +37,15 @@
 // }, 2000); 
 
 
-test( "make sure runAjax() is working properly", function() {
+test( "make sure runAjax() is working properly (which means makeurl is also working)", function() {
 	
 	var searchterm = "tennis";
-	document.getElementById('searchTermInput').innerHTML = searchterm;
+	document.getElementById('searchTermInput').value = "tennis";
 	var year = "1999";
-	document.getElementById('yearInput').innerHTML = year;
-	gapi.runAjax();
-  equal( gapi.requestUrl, 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' + "&show-fields=all")
+	document.getElementById('yearInput').value = year;
+	var testRequestUrl = gapi.runAjax();
+
+  equal(testRequestUrl, 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' + "&show-fields=all");
+   gapi.clearInputs();
 });
 
