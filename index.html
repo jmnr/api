@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
-
+  <meta charset="utf-8">
   <title>The Guardian Time Machine</title>
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
@@ -27,9 +27,9 @@
 <form type='submit'>
 <div id="search-box-container">
 
-<div class="search-box" id="topic"><input type="text" id="searcht" placeholder='fried chicken' required="required"></div>
-<div class="search-box" id="year"><input type="text" id="year" placeholder='2001' required="required"></div>
-</br></br><input id="go-button" type="button" onclick="runAjax()" value="GO"></div>
+<div class="search-box" id="topic"><input type="text" id="searchTermInput" placeholder='asparagus' required="required"></div>
+<div class="search-box" id="year"><input type="text" id="yearInput" placeholder='2001' required="required"></div>
+</br></br><input id="go-button" type="button" onclick="gapi.runAjax()" value="GO"></div>
 
 </div>
 </div>
@@ -45,7 +45,7 @@
   <ul class="tabs">
       <li>
           <input type="radio" checked name="tabs" id="tab1">
-          <label for="tab1">tab 1</label>
+          <label id="labelTab1" for="tab1" class='tab-labels'>tab 1</label>
           <div id="tab-content1" class="tab-content">
               <h3>Tab 1</h3>
               <!-- Your content goes here -->
@@ -53,7 +53,7 @@
       </li>
       <li>
           <input type="radio" name="tabs" id="tab2">
-          <label for="tab2">tab 2</label>
+          <label id="labelTab2" for="tab2" class='tab-labels'>tab 2</label>
           <div id="tab-content2" class="tab-content">
               <h3>Tab 2</h3>
               <!-- Your content goes here -->
@@ -61,7 +61,7 @@
       </li>
       <li>
           <input type="radio" name="tabs" id="tab3">
-          <label for="tab3">tab 3</label>
+          <label id="labelTab3" for="tab3" class='tab-labels'>tab 3</label>
           <div id="tab-content3" class="tab-content">
               <h3>Tab 3</h3>
               <!-- Your content goes here -->
@@ -76,11 +76,9 @@
 <div id="qunit"></div>
 <div id="qunit-fixture"></div>
 <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
-
-
 <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
-
 <script type="text/javascript" src="./apitests.js"></script>
+
 
 </BODY>
 </HTML>

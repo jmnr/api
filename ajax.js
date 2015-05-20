@@ -19,9 +19,9 @@ gapi.AjaxGetRequest = function(searchurl, callback){
 };
 
 gapi.displayResults = function(response) {
-
+  /*
   var list = document.getElementById('demo');
-  for(var i = 0; i < 4; i++) {
+  for(var i = 0; i < 3; i++) {
     var title = response[i].webTitle.toString();
     var entry = document.createElement('li');
     entry.appendChild(document.createTextNode(title));
@@ -33,6 +33,13 @@ gapi.displayResults = function(response) {
   document.getElementById('resultHead').innerHTML = response[0].webTitle;
   document.getElementById('resultBody').innerHTML = response[0].fields.body;
   document.getElementById('resultAuthor').innerHTML = "by " + response[0].fields.byline;
+  */
+  for (i=0; i<3; i++) {
+    console.log(document.getElementsByClassName('tab-labels')[i]);
+    document.getElementsByClassName('tab-labels')[i].innerHTML = gapi.shorten(response[i].webTitle);
+    console.log(document.getElementsByClassName('tab-labels')[i]);
+    document.getElementsByClassName('tab-content')[i].innerHTML = response[i].fields.body;
+  }
 
 };
 
@@ -45,6 +52,10 @@ gapi.runAjax = function() {
   var year = document.getElementById('yearInput').value.toString();
   var requestUrl = gapi.makeurl(searchterm, year);
   gapi.AjaxGetRequest(requestUrl, gapi.displayResults);
+};
+
+gapi.shorten = function(string) {
+  return string.length > 25 ? string.substring(0, 25) + "..." : string;
 };
 
 //////
