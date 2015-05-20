@@ -1,3 +1,8 @@
+# jmnr-api
+Week 2 - Using APIs
+
+Here's the [challenge](https://github.com/foundersandcoders/fac5/blob/master/week2/assignment.md)
+
 # How to Build a Time Machine
 
 ## Day 1
@@ -11,9 +16,8 @@ Today we worked on a concpet to deisgn a piece of software that uses teh guardia
 + wire frames
 + basic tests
 + api registration
-+ gitflow 
-+ webpage page html and css 
++ gitflow
++ webpage page html and css
 + webpage js
 
 Tomorrow we will work on adding content and maybe even some tests to the mix.
-
