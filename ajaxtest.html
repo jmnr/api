@@ -1,5 +1,6 @@
 <html>
 <head>
+</head>
 <body>
 
 <form type='submit'>
@@ -20,12 +21,12 @@
 
 <script>
 function AjaxGetRequest(searchurl,callback){
-  console.log(searchurl);
   var httpRequest = new XMLHttpRequest();
   httpRequest.onreadystatechange = function(){
     if (httpRequest.readyState === 4) {
       if (httpRequest.status === 200) {
         var response1 = JSON.parse(httpRequest.responseText).response.results;
+        console.log(response1);
         callback(response1);
         } else {
         console.log('There was a problem with the request.');
@@ -38,6 +39,7 @@ function AjaxGetRequest(searchurl,callback){
 
 var displayresults = function(responseT) {
   var list = document.getElementsByTagName('a');
+  console.log(typeof list);
   for (var i =0; i<list.length; i++) {
            list[i].innerHTML  =   responseT[i].webTitle.toString();
            list[i].setAttribute('href', responseT[i].webUrl.toString());
@@ -46,7 +48,7 @@ var displayresults = function(responseT) {
 
 
 var makeurl = function(searchterm, year) {
-  var url = 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + PUT API KEY with quotes here;
+  var url = 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt';
   return url;
 };
 
