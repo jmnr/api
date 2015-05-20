@@ -35,7 +35,16 @@
 //     }, 200);  
 //   });
 // }, 2000); 
-
+/*
+test("check that the icon exists", function() {
+    var header = document.getElementById('icon');
+    equal(header.alt, 'The Guardian: Time Machine', 'icon is correct');
+});
+*/
+test("check that the css exists", function() {
+    var header = getComputedStyle(document.getElementById('logo'), null).textAlign;
+    equal(header, 'center', 'css is present');
+});
 
 test( "make sure runAjax() is working properly (which means makeurl is also working)", function() {
 	
