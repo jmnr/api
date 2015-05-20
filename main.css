@@ -61,6 +61,7 @@ body {
 
 #results {
   margin: 50px 100px 50px;
+  /*display: none;*/
 }
 
 .tabs {
