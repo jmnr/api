@@ -1,5 +1,5 @@
 body {
-  background: #FF8533;
+  background: #005689;
   font-family: "Helvetica";
   text-align: center;
 }
@@ -11,6 +11,11 @@ body {
   border-radius: 25px;
   margin: 50px 100px 50px;
   padding: 50px 50px 50px;
+}
+
+#logo {
+  text-align: center;
+  width: 75%;
 }
 
 #header h1 {
