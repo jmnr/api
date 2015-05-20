@@ -1,4 +1,4 @@
-var gapi = {};
+ var gapi = {};
 
 gapi.AjaxGetRequest = function(searchurl, callback){
   //console.log(searchurl);
