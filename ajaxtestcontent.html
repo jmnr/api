@@ -1,10 +1,5 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>TIME MACHINE</title>
-</head>
-
 <body>
 
 <form type='submit'>
@@ -13,14 +8,11 @@
   <input type="button" onclick="runAjax()" value="Submit">
  </form>
 
- <div>
-<ul>
-  <li><a href="" target="_blank"></a></li>
-  <li><a href="" target="_blank"></a></li>
-  <li><a href="" target="_blank"></a></li>
-  <li><a href="" target="_blank"></a></li>
 
-</ul>
+ <div>
+  <h1 id="resulthead"></h1>
+  <h2 id="author"></h2>
+  <p id="resultbody"></p>
  </div>
 
 <script>
@@ -31,6 +23,7 @@ function AjaxGetRequest(searchurl,callback){
     if (httpRequest.readyState === 4) {
       if (httpRequest.status === 200) {
         var response1 = JSON.parse(httpRequest.responseText).response.results;
+        console.log(response1);
         callback(response1);
         } else {
         console.log('There was a problem with the request.');
@@ -42,17 +35,13 @@ function AjaxGetRequest(searchurl,callback){
 }
 
 var displayresults = function(responseT) {
-  var list = document.getElementsByTagName('a');
-  alert(list);
-  for (var i =0; i<list.length; i++) {
-           list[i].innerHTML  =   responseT[i].webTitle.toString();
-           list[i].setAttribute('href', responseT[i].webUrl.toString());
-        };
-  };
-
+   document.getElementById('resulthead').innerHTML = responseT[0].webTitle;
+   document.getElementById('resultbody').innerHTML = responseT[0].fields.body;
+   document.getElementById('author').innerHTML = "By " + responseT[0].fields.byline;
+    };
 
 var makeurl = function(searchterm, year) {
-  var url = 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&q=' + searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' + "&show-fields=all";
+  var url = 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + API KEY GOES HERE + '&show-fields=all';
   return url;
 };
 
