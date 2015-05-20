@@ -1,5 +1,10 @@
+<!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <title>TIME MACHINE</title>
+</head>
+
 <body>
 
 <form type='submit'>
@@ -15,8 +20,8 @@
   <li><a href="" target="_blank"></a></li>
   <li><a href="" target="_blank"></a></li>
 
-</ul>    
- <div>
+</ul>
+ </div>
 
 <script>
 function AjaxGetRequest(searchurl,callback){
@@ -46,7 +51,7 @@ var displayresults = function(responseT) {
 
 
 var makeurl = function(searchterm, year) {
-  var url = 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + PUT API KEY with quotes here;
+  var url = 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt';
   return url;
 };
 
