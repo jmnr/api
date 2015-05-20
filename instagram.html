@@ -11,8 +11,8 @@
             console.log(httpRequest.status);
           if (httpRequest.readyState === 4) {
             if (httpRequest.status === 200) {
-              var response1 = httpRequest.responseText;
-              console.log(response1);
+              // var response1 = httpRequest.responseText;
+              // console.log(response1);
               // callback(response1);
               } else {
               console.log('There was a problem with the request.');
@@ -29,8 +29,10 @@
         return url;
       };
 
-      var callback1 = function() {
-        var reponse2 = 
+      var callback1 = function(param) {
+        var reponse2 = param;
+        console.log(response2);
+
       }
 
       var searchterm = 'snowy';
