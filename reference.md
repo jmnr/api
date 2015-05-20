@@ -1,13 +1,26 @@
 
 #IDs and Classes in index.html
 
-ID: header
+###Input/Search Section
 
-ID: intro-text
+content (ID)
+header (ID)
+intro-text (ID)
+search-box-container (ID)
+search-box (class)
+searcht (ID)
+year (ID)
+go-button (ID)
 
-ID: search-box-container
-Class: search-box
-ID: topic
-ID: year
+###Results/Tab Section
 
-ID: go-button
+results (ID)
+tabbed-area (class)
+tabs (class)
+tab1 (ID)
+tab2 (ID)
+tab3 (ID)
+tab-content (class)
+tab-content1 (ID)
+tab-content2 (ID)
+tab-content3 (ID)

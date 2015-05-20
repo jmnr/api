@@ -15,7 +15,6 @@ function AjaxGetRequest(url){
   httpRequest.send(null);
 }
 
-
 var makeurl = function(searchterm, year) {
   var url = 'http://content.guardianapis.com/search?' + 'from-date=' + year +
             '-01-01' + '&to-date=' + year + '-12-31' + '&q=' + searchterm +
