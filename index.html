@@ -1,25 +1,84 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>TIME MACHINE</title>
-    <link rel="stylesheet" href="./main.css">
-    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
-  </head>
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
 
-  <body>
-    <h1>TIME MACHINE</h1>
-    <h3>Topic + Year = Excitement</h3>
+  <title>The Guardian Time Machine</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
+  <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-    <div id="qunit"></div>
-    <div id="qunit-fixture"></div>
-    <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+</HEAD>
+<BODY>
 
-    <div id="qunit"></div>
-    <div id="qunit-fixture"></div>
-    <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
-    
-    <script type="text/javascript" src="./main.js"></script>
-  </body>
+<div id="content">
 
-</html>
+<div id="header">
+  <img id="logo" src="https://dl.dropboxusercontent.com/u/297682547/TIME%20MACHINE%20(2).png" alt="The Guardian: Time Machine">
+  <img id="logo-mobile" src="https://dl.dropboxusercontent.com/u/297682547/TIME%20MACHINE%20(3).png" alt="The Guardian: Time Machine">
+</div>
+
+<div id="intro-text">
+  <p>Put a topic and year into our Time Machine to read news IN THE PAST.</p>
+</div>
+
+<form type='submit'>
+<div id="search-box-container">
+
+<div class="search-box" id="topic"><input type="text" id="searcht" placeholder='fried chicken' required="required"></div>
+<div class="search-box" id="year"><input type="text" id="year" placeholder='2001' required="required"></div>
+</br></br><input id="go-button" type="button" onclick="runAjax()" value="GO"></div>
+
+</div>
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<div id="results" class="tabbed-area">
+
+  <ul class="tabs">
+      <li>
+          <input type="radio" checked name="tabs" id="tab1">
+          <label for="tab1">tab 1</label>
+          <div id="tab-content1" class="tab-content">
+              <h3>Tab 1</h3>
+              <!-- Your content goes here -->
+          </div>
+      </li>
+      <li>
+          <input type="radio" name="tabs" id="tab2">
+          <label for="tab2">tab 2</label>
+          <div id="tab-content2" class="tab-content">
+              <h3>Tab 2</h3>
+              <!-- Your content goes here -->
+          </div>
+      </li>
+      <li>
+          <input type="radio" name="tabs" id="tab3">
+          <label for="tab3">tab 3</label>
+          <div id="tab-content3" class="tab-content">
+              <h3>Tab 3</h3>
+              <!-- Your content goes here -->
+          </div>
+      </li>
+  </ul>
+
+  	</div>
+
+</div>
+
+<!--<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+
+<script type="text/javascript" src="./main.js"></script>-->
+
+</BODY>
+</HTML>
