@@ -4,6 +4,8 @@ body {
   text-align: center;
 }
 
+/**** Styles for input/search section ****/
+
 #content {
   background: white;
   border-radius: 25px;
@@ -48,58 +50,68 @@ body {
   filter: alpha(opacity=30);
 }
 
-#results {
+/**** Styles for tabs/results section ****/
+
+/**#results {
   background: white;
   border-radius: 25px;
   margin: 50px 100px 50px;
   padding: 50px 50px 50px;
+}**/
+
+#results {
+  margin: 50px 100px 50px;
+}
+
+.tabs {
+    float: none;
+    list-style: none;
+    position: relative;
+    padding: 0;
 }
 
 .tabs input[type=radio] {
     display:none;
 }
 
-.tabs {
-    width: 650px;
-    float: none;
-    list-style: none;
-    position: relative;
-    padding: 0;
-    margin: 75px auto;
-}
-
-.tabs li{
+.tabs li {
     float: left;
 }
 
 .tabs label {
-    display: block;
-    padding: 10px 20px;
+    background: #2c3e50;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     color: #FFFFFF;
+    cursor: pointer;
+    display: block;
     font-size: 24px;
     font-weight: normal;
-    background: #2c3e50;
-    cursor: pointer;
+    padding: 10px 20px;
     position: relative;
 }
 
 .tabs label:hover {
-    background: #3498db;
+    background: grey;
 }
 
 .tab-content {
-    z-index: 2;
+    background-color:#ffffff;
+    border:1px solid #ccc;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top: 10px solid #08C;
+    border-top-right-radius: 25px;
+    box-sizing: border-box;
     display: none;
-    left: 0;
-    width: 100%;
     font-size: 20px;
+    left: 0;
     line-height: 140%;
+    margin-bottom: 50px;
     padding: 15px;
     position: absolute;
-    box-sizing: border-box;
-    border:1px solid #ccc;
-    border-top: 10px solid #08C;
-    background-color:#ffffff;
+    width: 100%;
+    z-index: 2;
 }
 
 [id^=tab]:checked + label {
@@ -111,38 +123,6 @@ body {
 [id^=tab]:checked ~ [id^=tab-content] {
     display: block;
 }
-
-/*.tabs-container {
-  list-style: none;
-}
-
-.tabs-container li {
-  display: inline;
-}
-
-.tabs-container li a {
-  color: black;
-  float: left;
-  display: block;
-  padding: 4px 10px;
-  margin-left: -1px;
-  position: relative;
-  left: 1px;
-  text-decoration: none;
-}
-
-.tabs-container li a:hover {
-  background: #ccc;
-}
-
-.tabs-container:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}*/
 
 @media (max-width: 700px){
 
