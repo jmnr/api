@@ -1,6 +1,6 @@
 body {
   background: #005689;
-  font-family: "Helvetica";
+  font-family: 'Playfair Display', serif;
   text-align: center;
 }
 
@@ -16,6 +16,10 @@ body {
 #logo {
   text-align: center;
   width: 75%;
+}
+
+#logo-mobile {
+  display:none;
 }
 
 #header h1 {
@@ -34,6 +38,7 @@ body {
 .search-box input {
   border: 1px solid #666;
   border-radius: 300px;
+  font-family: 'Playfair Display', serif;
   font-size: 28px;
   height: 50px;
   width:225px;
@@ -45,6 +50,7 @@ body {
   /*background-color: red;*/
   border: 1px solid #666;
   border-radius: 300px;
+  font-family: 'Playfair Display', serif;
   font-size: 30px;
   height: 50px;
   width: 100px;
@@ -134,6 +140,16 @@ body {
   #content {
     margin: 0 10px 10px;
     padding: 10px 10px 10px;
+  }
+
+  #logo {
+    display:none;
+  }
+
+  #logo-mobile {
+    display:inline;
+    text-align: center;
+    width: 75%;
   }
 
   #header h1 {
