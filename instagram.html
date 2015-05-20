@@ -1,0 +1,42 @@
+
+<html>
+<head>
+</head>
+<body>
+  <script>
+      function AjaxGetRequest(searchurl){
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function(){
+            console.log(httpRequest.readyState);
+            console.log(httpRequest.status);
+          if (httpRequest.readyState === 4) {
+            if (httpRequest.status === 200) {
+              var response1 = httpRequest.responseText;
+              console.log(response1);
+              // callback(response1);
+              } else {
+              console.log('There was a problem with the request.');
+            }
+          }
+        };
+        httpRequest.open("GET", searchurl, true);
+        httpRequest.send();
+      }
+
+      var makeurl = function(searchterm) {
+        var url = 'https://api.instagram.com/v1/tags/search?q=' + searchterm + '&access_token=337128822.3210389.55a4db088dcf438bad39ec9a4eb34390' + '&callback=callback1';
+        console.log(url);
+        return url;
+      };
+
+      var callback1 = function() {
+        var reponse2 = 
+      }
+
+      var searchterm = 'snowy';
+      var url1 = makeurl(searchterm);
+      AjaxGetRequest(url1);
+
+  </script>
+</body>
+</html>

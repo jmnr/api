@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
-
+  <meta charset="utf-8">
   <title>The Guardian Time Machine</title>
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
@@ -24,9 +24,9 @@
 <form type='submit'>
 <div id="search-box-container">
 
-<div class="search-box" id="topic"><input type="text" id="searcht" placeholder='asparagus' required="required"></div>
-<div class="search-box" id="year"><input type="text" id="year" placeholder='2001' required="required"></div>
-</br></br><input id="go-button" type="button" onclick="runAjax()" value="GO"></div>
+<div class="search-box" id="topic"><input type="text" id="searchTermInput" placeholder='fried chicken' required="required"></div>
+<div class="search-box" id="year"><input type="text" id="yearInput" placeholder='2001' required="required"></div>
+</br></br><input id="go-button" type="button" onclick="gapi.runAjax()" value="GO"></div>
 
 </div>
 </div>
@@ -42,7 +42,7 @@
   <ul class="tabs">
       <li>
           <input type="radio" checked name="tabs" id="tab1">
-          <label for="tab1">tab 1</label>
+          <label id="labelTab1" for="tab1">tab 1</label>
           <div id="tab-content1" class="tab-content">
               <h3>Tab 1</h3>
               <!-- Your content goes here -->
@@ -78,7 +78,7 @@
 <div id="qunit-fixture"></div>
 <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>-->
 
-<script type="text/javascript" src="./main.js"></script>
+<script type="text/javascript" src="ajax.js"></script>
 
 </BODY>
 </HTML>
