@@ -1,64 +1,46 @@
+<!DOCTYPE html>
 <html>
+
 <head>
+  <meta charset="utf-8">
+  <title>TIME MACHINE</title>
+  <title>QUnit Example</title>
+  <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.18.0.css">
 </head>
+
 <body>
 
-<form type='submit'>
-    I want to know something about <input type="text" id="searcht" placeholder='e.g. Tennis' required="required"><br>
-    in the year <input type="text" id="year" placeholder='e.g 1992' required="required"><br><br>
-  <input type="button" onclick="runAjax()" value="Submit">
- </form>
+  <form type='submit'>
+    I want to know something about <input type="text" id="searchTermInput" placeholder='e.g. Tennis' required="required"><br>
+    in the year <input type="text" id="yearInput" placeholder='e.g 1992' required="required"><br><br>
+  <input type="button" onclick="gapi.runAjax()" value="Submit">
+  </form>
 
- <div>
-<ul>
-  <li><a href="" target="_blank"></a></li>
-  <li><a href="" target="_blank"></a></li>
-  <li><a href="" target="_blank"></a></li>
-  <li><a href="" target="_blank"></a></li>
+  <div>
+    <ul id="demo">
+      <!--
+      <li><a href="" target="_blank"></a></li>
+      <li><a href="" target="_blank"></a></li>
+      <li><a href="" target="_blank"></a></li>
+      <li><a href="" target="_blank"></a></li>
+      -->
+    </ul>
 
-</ul>    
- <div>
+    <div>
+     <h1 id="resultHead"></h1>
+     <h2 id="resultAuthor"></h2>
+     <p id="resultBody"></p>
+    </div>
 
-<script>
-function AjaxGetRequest(searchurl,callback){
-  var httpRequest = new XMLHttpRequest();
-  httpRequest.onreadystatechange = function(){
-    if (httpRequest.readyState === 4) {
-      if (httpRequest.status === 200) {
-        var response1 = JSON.parse(httpRequest.responseText).response.results;
-        console.log(response1);
-        callback(response1);
-        } else {
-        console.log('There was a problem with the request.');
-      }
-    }
-  };
-  httpRequest.open("GET", searchurl, true);
-  httpRequest.send();
-}
+  </div>
 
-var displayresults = function(responseT) {
-  var list = document.getElementsByTagName('a');
-  console.log(typeof list);
-  for (var i =0; i<list.length; i++) {
-           list[i].innerHTML  =   responseT[i].webTitle.toString();
-           list[i].setAttribute('href', responseT[i].webUrl.toString());
-        };
-  };
+  <!--
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  -->
 
-
-var makeurl = function(searchterm, year) {
-  var url = 'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt';
-  return url;
-};
-
-var runAjax = function() {
-  var searchterm = document.getElementById('searcht').value.toString();
-  var year = document.getElementById('year').value.toString();
-  var url1 = makeurl(searchterm, year);
-  AjaxGetRequest(url1, displayresults);
-};
-
-</script>
+  <script src="http://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+  <script src="test.js"></script>
+  <script src="ajax.js"></script>
 </body>
 </html>
