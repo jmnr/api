@@ -19,9 +19,9 @@ gapi.AjaxGetRequest = function(searchurl, callback){
 };
 
 gapi.displayResults = function(response) {
-
+  /*
   var list = document.getElementById('demo');
-  for(var i = 0; i < 4; i++) {
+  for(var i = 0; i < 3; i++) {
     var title = response[i].webTitle.toString();
     var entry = document.createElement('li');
     entry.appendChild(document.createTextNode(title));
@@ -33,6 +33,8 @@ gapi.displayResults = function(response) {
   document.getElementById('resultHead').innerHTML = response[0].webTitle;
   document.getElementById('resultBody').innerHTML = response[0].fields.body;
   document.getElementById('resultAuthor').innerHTML = "by " + response[0].fields.byline;
+  */
+  document.getElementById('labelTab1').innerHTML = response[0].webTitle;
 
 };
 
