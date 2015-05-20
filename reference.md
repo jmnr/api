@@ -5,6 +5,8 @@
 
 content (ID)
 header (ID)
+logo (ID)
+logo-mobile (ID)
 intro-text (ID)
 search-box-container (ID)
 search-box (class)
