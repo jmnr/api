@@ -1,4 +1,3 @@
-
 var gapi = (function(){
   "use strict";
 
@@ -9,8 +8,8 @@ var gapi = (function(){
         if (httpRequest.status === 200) {
           var JSONresponse = JSON.parse(httpRequest.responseText).response.results;
           callback(JSONresponse);
-          } else {
-          alert('There was a problem with the request. Please try again. ');
+        } else {
+          console.log('There was a problem with the request.');
         }
       }
     };
@@ -20,40 +19,24 @@ var gapi = (function(){
 
   function displayResults (response) {
 
-    /*
-    var list = document.getElementById('demo');
-    for(var i = 0; i < 3; i++) {
-      var title = response[i].webTitle.toString();
-      var entry = document.createElement('li');
-      entry.appendChild(document.createTextNode(title));
-      list.appendChild(entry);
-      //list[i].innerHTML = response[i].webTitle.toString();
-      list.setAttribute('href', response[i].webUrl.toString());
-    };
-
-    document.getElementById('resultHead').innerHTML = response[0].webTitle;
-    document.getElementById('resultBody').innerHTML = response[0].fields.body;
-    document.getElementById('resultAuthor').innerHTML = "by " + response[0].fields.byline;
-    */
-
-    // document.getElementById('labelTab1').innerHTML = response[0].webTitle;
-
-    // var elem = document.getElementById("#results");
-    //   elem.display = "initial";
-    // document.getElementById("results").style.display = 'inherit';
-
-    if (response.length == 0) {
+    if (response.length === 0) {
       alert("Looks like there aren't any results to display! Try a different search term!")
     }
 
     else {
         // cleanContent(response);
+
+        var titles = document.getElementsByClassName('titles');
+        var authors = document.getElementsByClassName('article-author');
+        var content = document.getElementsByClassName('article-content');
+        var readmore = document.getElementsByClassName('read-more');
       for (var i = 0; i < 3; i++) {
-      document.getElementsByClassName('titles')[i].innerHTML = response[i].webTitle;
-      document.getElementsByClassName('article-author')[i].innerHTML = "By " + response[i].fields.byline;
-      document.getElementsByClassName('article-content')[i].innerHTML = response[i].fields.body;
-  }
-};
+        titles[i].innerHTML = response[i].webTitle;
+        authors[i].innerHTML = "By " + response[i].fields.byline;
+        content[i].innerHTML = response[i].fields.body;
+        readmore[i].setAttribute('href', response[i].webUrl);
+        }
+      };
 
   }
 
@@ -68,56 +51,19 @@ var gapi = (function(){
 
     // }
 
-    //document.getElementById('labelTab1').innerHTML = response[0].webTitle;
-    /*
-    var elem = document.getElementById("#results");
-      elem.display = "initial";*/
-    //document.getElementById("results").style.display = 'inherit';
-    /*
-    $('go-button').click(function(){
-      $('div').toggleClass('opa');
-    });
-    */
-
-  /*
-  var list = document.getElementById('demo');
-  for(var i = 0; i < 3; i++) {
-    var title = response[i].webTitle.toString();
-    var entry = document.createElement('li');
-    entry.appendChild(document.createTextNode(title));
-    list.appendChild(entry);
-    //list[i].innerHTML = response[i].webTitle.toString();
-    list.setAttribute('href', response[i].webUrl.toString());
-  };
-  document.getElementById('resultHead').innerHTML = response[0].webTitle;
-  document.getElementById('resultBody').innerHTML = response[0].fields.body;
-  document.getElementById('resultAuthor').innerHTML = "by " + response[0].fields.byline;
-  */
-  /*
-  document.getElementById('labelTab1').innerHTML = response[0].webTitle;
-  var elem = document.getElementById("#results");
-    elem.display = "initial";
-  document.getElementById("results").style.display = 'inherit';
-  $('go-button').click(function(){
-    $('div').toggleClass('opa');
-  });
-  */
-
   function makeurl (searchterm, year) {
     return ('http://content.guardianapis.com/search?' + 'from-date=' +
       year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' +
       searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' + "&show-fields=all" + "&show-most-viewed=true");
-  };
+    }
 
   function runAjax () {
-    var searchterm = multipleInputs(document.getElementById('searchTermInput').value.toString());
-    // console.log(searchterm);
+    var searchterm = document.getElementById('searchTermInput').value.toString();
     var year = document.getElementById('yearInput').value.toString();
     var requestUrl = gapi.makeurl(searchterm, year);
-    // console.log(requestUrl);
     gapi.AjaxGetRequest(requestUrl, gapi.displayResults);
     return requestUrl;
-  }
+  };
 
   function clearInputs (){
     document.getElementById('searchTermInput').value = "";
@@ -126,26 +72,15 @@ var gapi = (function(){
       document.getElementsByClassName('tab-labels')[i].innerHTML = "";
       document.getElementsByClassName('tab-content')[i].innerHTML = "";
     }
-  }
+  };
 
   function multipleInputs (searchinput) {
     //converts multiple word inputs into a single string with the space replaced by %20
     return searchinput.replace(" ", "%20");
-
   };
 
   function shorten (string) {
     return string.length > 20 ? string.substring(0, 17) + '...' : string;
-  };
-
-  function clearInputs () {
-    document.getElementById('searchTermInput').value = "";
-    document.getElementById('yearInput').value = "";
-    for (var i=0; i<3; i++) {
-      document.getElementsByClassName('tab-labels')[i].innerHTML = "";
-      document.getElementsByClassName('tab-content')[i].innerHTML = "";
-    }
-
   };
 
   function changePlaceholder (){
@@ -155,13 +90,7 @@ var gapi = (function(){
     setInterval( function() {
       document.getElementById('searchTermInput').setAttribute('placeholder', suggestTopic[Math.floor((Math.random()*10) + 1)]);
       document.getElementById('yearInput').setAttribute('placeholder', suggestYear[Math.floor((Math.random()*10) + 1)]);
-      // console.log(document.getElementById('searchTermInput').placeholder);
-      // console.log(document.getElementById('yearInput').placeholder);
      }, 1000);
-  };
-
-function shorten (string) {
-    return string.length > 20 ? string.substring(0, 17) + "..." : string;
   }
 
   return {
@@ -171,10 +100,25 @@ function shorten (string) {
     clearInputs: clearInputs,
     runAjax: runAjax,
     shorten: shorten,
-    clearInputs: clearInputs,
-    changePlaceholder: changePlaceholder,
-    shorten: shorten
-  };
-
+    multipleInputs: multipleInputs,
+    changePlaceholder: changePlaceholder
+  }
 
 }());
+
+// $(document).ready(function () {
+//     //hide result and input divs
+//     $("#results").hide();
+//
+//     //enter key support
+//     $('#searchTermInput').keypress(function(e){
+//       if(e.keyCode === 13) $('#go-button').click();
+//     });
+//     $('#yearInput').keypress(function(e){
+//       if(e.keyCode === 13) $('#go-button').click();
+//     });
+//
+//     $("#go-button").click(function() {
+//         $("#results").fadeIn("slow");
+//     });
+// });
