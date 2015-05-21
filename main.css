@@ -63,10 +63,16 @@ body {
   opacity: 0.3;
 }
 
-/**** Styles for carousel section ****/
+/**** Styles for buttons ****/
 
-.hideable {
-    display: none;
+#button-area {
+  padding-right:35px;
+}
+
+#button-area > ul > li {
+  display:inline-block;
+  padding:0 10px 0;
+
 }
 
 .prev-next {
@@ -86,11 +92,13 @@ body {
 #nav-dot-group > ul > li {
   display:inline;
   list-style-type: none;
+  padding:0 10px 0;
   text-align: center;
 }
 
 #nav-dot-group > ul {
-  padding-right: 35px;
+  padding-right: 50px;
+  padding-bottom: 20px;
 }
 
 .nav-dots {
@@ -99,6 +107,12 @@ body {
   display: inline-block;
   height: 10px;
   width: 10px;
+}
+
+/**** Styles for carousel ****/
+
+.hideable {
+    display: none;
 }
 
 /**** Media Queries here ****/
@@ -145,10 +159,20 @@ body {
     padding: 10px 10px 10px 10px;
   }
 
+  #button-area {
+    padding:0 3px 0;
+    text-align: center;
+  }
+
   .prev-next {
     font-size: 14px;
     height: 25px;
     width: 40px;
+  }
+
+  #nav-dot-group > ul {
+    padding-right: 40px;
+    padding-bottom: 20px;
   }
 
   /*.nav-dots {
