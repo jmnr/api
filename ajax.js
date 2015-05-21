@@ -34,6 +34,7 @@ gapi.displayResults = function(response) {
   document.getElementById('resultBody').innerHTML = response[0].fields.body;
   document.getElementById('resultAuthor').innerHTML = "by " + response[0].fields.byline;
   */
+
   /*
   document.getElementById('labelTab1').innerHTML = response[0].webTitle;
 
@@ -46,6 +47,7 @@ gapi.displayResults = function(response) {
   });
   */
   for (var i = 0; i < 3; i++) {
+
     // console.log(document.getElementsByClassName('tab-labels')[i]);
     document.getElementsByClassName('titles')[i].innerHTML = response[i].webTitle;
     // console.log(document.getElementsByClassName('tab-labels')[i]);
