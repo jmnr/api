@@ -1,15 +1,13 @@
-// direction = boolean value: true or false. If true, go to NEXT slide; otherwise go to PREV slide
 function toggleSlide(direction) {
-    var elements = document.getElementsByClassName("hideable"); // gets all the "slides" in our slideshow
-    // Find the LI that's currently displayed
+    var elements = document.getElementsByClassName("hideable");
     var visibleID = getVisible(elements);
-    elements[visibleID].style.display = "none"; // hide the currently visible LI
+    elements[visibleID].style.display = "none";
     if(!direction) {
-        var makeVisible = prev(visibleID, elements.length); // get the previous slide
+        var makeVisible = prev(visibleID, elements.length);
     } else {
-        var makeVisible = next(visibleID, elements.length); // get the next slide
+        var makeVisible = next(visibleID, elements.length);
     }
-    elements[makeVisible].style.display = "block"; // show the previous or next slide
+    elements[makeVisible].style.display = "block";
 }
 function getVisible(elements) {
     var visibleID = -1;
@@ -28,6 +26,7 @@ function prev(num, arrayLength) {
       return num-1;
     }
 }
+
 function next(num, arrayLength) {
     if(num == arrayLength-1) {
       return 0;

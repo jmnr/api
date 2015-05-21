@@ -51,6 +51,8 @@ gapi.displayResults = function(response) {
     // console.log(document.getElementsByClassName('tab-labels')[i]);
     document.getElementsByClassName('article-author')[i].innerHTML = "By " + response[i].fields.byline;
     document.getElementsByClassName('article-content')[i].innerHTML = response[i].fields.body;
+    document.getElementsByClassName('read-more')[i].setAttribute("href", response[i].webUrl);
+
   }
 
 };
