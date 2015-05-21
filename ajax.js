@@ -34,6 +34,7 @@ gapi.displayResults = function(response) {
   document.getElementById('resultBody').innerHTML = response[0].fields.body;
   document.getElementById('resultAuthor').innerHTML = "by " + response[0].fields.byline;
   */
+
   /*
   document.getElementById('labelTab1').innerHTML = response[0].webTitle;
 
@@ -46,10 +47,14 @@ gapi.displayResults = function(response) {
   });
   */
   for (var i = 0; i < 3; i++) {
+
     // console.log(document.getElementsByClassName('tab-labels')[i]);
-    document.getElementsByClassName('tab-labels')[i].innerHTML = gapi.shorten(response[i].webTitle);
+    document.getElementsByClassName('titles')[i].innerHTML = response[i].webTitle;
     // console.log(document.getElementsByClassName('tab-labels')[i]);
-    document.getElementsByClassName('tab-content')[i].innerHTML = response[i].fields.body;
+    document.getElementsByClassName('article-author')[i].innerHTML = "By " + response[i].fields.byline;
+    document.getElementsByClassName('article-content')[i].innerHTML = response[i].fields.body;
+    document.getElementsByClassName('read-more')[i].setAttribute("href", response[i].webUrl);
+
   }
 
 };
