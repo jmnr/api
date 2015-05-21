@@ -93,6 +93,7 @@ gapi.shorten = function(string) {
   return string.length > 25 ? string.substring(0, 25) : string;
 };
 
+
 //////
 /*
 function AjaxGetRequest(searchurl,callback){
