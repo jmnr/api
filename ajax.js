@@ -34,7 +34,20 @@ gapi.displayResults = function(response) {
   document.getElementById('resultBody').innerHTML = response[0].fields.body;
   document.getElementById('resultAuthor').innerHTML = "by " + response[0].fields.byline;
   */
-  for ( var i=0; i<3; i++) {
+
+  /*
+  document.getElementById('labelTab1').innerHTML = response[0].webTitle;
+
+  var elem = document.getElementById("#results");
+    elem.display = "initial";
+  document.getElementById("results").style.display = 'inherit';
+
+  $('go-button').click(function(){
+    $('div').toggleClass('opa');
+  });
+  */
+  for (var i = 0; i < 3; i++) {
+
     // console.log(document.getElementsByClassName('tab-labels')[i]);
     document.getElementsByClassName('tab-labels')[i].innerHTML = gapi.shorten(response[i].webTitle);
     // console.log(document.getElementsByClassName('tab-labels')[i]);
@@ -45,8 +58,8 @@ gapi.displayResults = function(response) {
 
 gapi.makeurl = function(searchterm, year) {
   return (
-    'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' + 
-    year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' + 
+    'http://content.guardianapis.com/search?' + 'from-date=' + year + '-01-01' + '&to-date=' +
+    year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' +
     "&show-fields=all"
   );
 };
@@ -70,7 +83,11 @@ gapi.clearInputs = function(){
     document.getElementsByClassName('tab-labels')[i].innerHTML = "";
     document.getElementsByClassName('tab-content')[i].innerHTML = "";
   }
-  
+
+};
+
+gapi.shorten = function(string) {
+  return string.length > 25 ? string.substring(0, 25) : string;
 };
 
 //////
@@ -114,5 +131,3 @@ var runAjax = function() {
   AjaxGetRequest(url1, displayresults);
 };
 */
-
-
