@@ -110,3 +110,20 @@ var gapi = (function(){
   }
 
 }());
+
+$(document).ready(function () {
+    //hide result and input divs
+    $("#results").hide();
+
+    //enter key support
+    $('#searchTermInput').keypress(function(e){
+      if(e.keyCode === 13) $('#go-button').click();
+    });
+    $('#yearInput').keypress(function(e){
+      if(e.keyCode === 13) $('#go-button').click();
+    });
+
+    $("#go-button").click(function() {
+        $("#results").fadeIn("slow");
+    });
+});
