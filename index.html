@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
+  <link rel="shortcut icon" href="http://www.iconj.com/ico/5/6/56eooe718a.ico" type="image/x-icon" />
   <meta charset="utf-8">
   <title>The Guardian Time Machine</title>
   <link rel="stylesheet" href="main.css">
@@ -21,7 +22,7 @@
 </div>
 
 <div id="intro-text">
-  <p>Put a topic and year into our Time Machine to read news IN THE PAST.</p>
+  <p>Put a topic and year into our Time Machine to read news IN THE PAST (from 1999).</p>
 </div>
 
 <form type='submit'>
@@ -39,60 +40,63 @@
 </div>
 
 </div>
+<!--carousel area starts here -->
 
-<!--tab area starts here -->
+<div id="buttons">
+  <form>
+    <input class="prev-next" type="button" value="<" onclick="toggleSlide()" />
 
-<div id="results" class="tabbed-area">
+    <!--<div id="nav-dot-group">
+      <ul>
+        <li><div class="nav-dots"></div></li>
+        <li><div class="nav-dots"></div></li>
+        <li><div class="nav-dots"></div></li>
+      </ul>
+    </div>-->
 
-  <ul class="tabs">
-      <li>
-          <input type="radio" checked name="tabs" id="tab1">
-          <label id="labelTab1" for="tab1" class='tab-labels'>tab 1</label>
-          <div id="tab-content1" class="tab-content">
-              <h3>Tab 1</h3>
-              <!-- Your content goes here -->
-          </div>
-      </li>
-      <li>
-          <input type="radio" name="tabs" id="tab2">
-          <label id="labelTab2" for="tab2" class='tab-labels'>tab 2</label>
-          <div id="tab-content2" class="tab-content">
-              <h3 id="gotest">Tab 2</h3>
-              <!-- Your content goes here -->
-          </div>
-      </li>
-      <li>
-          <input type="radio" name="tabs" id="tab3">
-          <label id="labelTab3" for="tab3" class='tab-labels'>tab 3</label>
-          <div id="tab-content3" class="tab-content">
-              <h3>Tab 3</h3>
-              <!-- Your content goes here -->
-          </div>
-      </li>
+
+    <input class="prev-next" type="button" value=">" onclick="toggleSlide(true)" />
+  </form>
+</div>
+
+<div id="content">
+
+  <ul style="list-style-type: none; margin-left: -2em;">
+    <li id="1" class="hideable" style="display: block;">
+      <h1 class="titles"></h1>
+      <h3 class="article-author"></h3>
+      <p class="article-content"></p>
+      <p><a href="" class="read-more">Read more...</a></p>
+    </li>
+    <li id="2" class="hideable">
+      <h1 class="titles"></h1>
+      <h3 class="article-author"></h3>
+      <p class="article-content"></p>
+      <p><a href="" class="read-more">Read more...</a></p>
+    </li>
+    <li id="3" class="hideable">
+      <h1 class="titles"></h1>
+      <h3 class="article-author"></h3>
+      <p class="article-content"></p>
+      <p><a href="" class="read-more">Read more...</a></p>
+    </li>
   </ul>
-
-  	</div>
 
 </div>
 
+  </div>
 
+  <!-- testing zone -->
 
-<!-- testing carousel here -->
+  <!--<div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
 
-<!--<div class="carousel">
-    <div class="carousel-item" id="item1"><h1>Item 1</h1></div>
-    <div class="carousel-item" id="item2"><h1>Item 2</h1></div>
-    <div class="carousel-item" id="item3"><h1>Item 3</h1></div>
-    <div class="carousel-item" id="item4"><h1>Item 4</h1></div>
-    <div class="controls">
-        <a href="#item1" class="btn">•</a>
-        <a href="#item2" class="btn">•</a>
-        <a href="#item3" class="btn">•</a>
-        <a href="#item4" class="btn">•</a>
-    </div>
-</div>-->
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>-->
 
-<!-- testing zone -->
+<!--
 
 <div id="qunit"></div>
 <div id="qunit-fixture"></div>
@@ -106,7 +110,10 @@
 <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
 <script type="text/javascript" src="apitests.js"></script>
 
+-->
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="carousel.js"></script>
 <script type="text/javascript" src="javascript.js"></script>
 
 </BODY>
