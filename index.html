@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
+  <link rel="shortcut icon" href="http://www.iconj.com/ico/5/6/56eooe718a.ico" type="image/x-icon" />
   <meta charset="utf-8">
   <title>The Guardian Time Machine</title>
   <link rel="stylesheet" href="main.css">
@@ -10,94 +11,99 @@
 </HEAD>
 <BODY>
 
-<div id="content">
+  <div id="content">
 
-<div id="header">
-  <img id="logo" src="https://dl.dropboxusercontent.com/u/297682547/TIME%20MACHINE%20(2).png" alt="The Guardian: Time Machine">
-  <img id="logo-mobile" src="https://dl.dropboxusercontent.com/u/297682547/TIME%20MACHINE%20(3).png" alt="The Guardian: Time Machine">
-</div>
-
-<div id="intro-text">
-  <p>Put a topic and year into our Time Machine to read news IN THE PAST.</p>
-</div>
-
-<form type='submit'>
-<div id="search-box-container">
-
-<div class="search-box" id="topic"><input type="text" id="searchTermInput" placeholder='asparagus' required="required"></div>
-<div class="search-box" id="year"><input type="text" id="yearInput" placeholder='2001' required="required"></div>
-</br></br><input id="go-button" type="button" onclick="gapi.runAjax()" value="GO"></div>
-
-</div>
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-<!--tab area starts here -->
-
-<div id="results" class="tabbed-area">
-
-  <ul class="tabs">
-      <li>
-          <input type="radio" checked name="tabs" id="tab1">
-          <label id="labelTab1" for="tab1" class='tab-labels'>tab 1</label>
-          <div id="tab-content1" class="tab-content">
-              <h3>Tab 1</h3>
-              <!-- Your content goes here -->
-          </div>
-      </li>
-      <li>
-          <input type="radio" name="tabs" id="tab2">
-          <label id="labelTab2" for="tab2" class='tab-labels'>tab 2</label>
-          <div id="tab-content2" class="tab-content">
-              <h3>Tab 2</h3>
-              <!-- Your content goes here -->
-          </div>
-      </li>
-      <li>
-          <input type="radio" name="tabs" id="tab3">
-          <label id="labelTab3" for="tab3" class='tab-labels'>tab 3</label>
-          <div id="tab-content3" class="tab-content">
-              <h3>Tab 3</h3>
-              <!-- Your content goes here -->
-          </div>
-      </li>
-  </ul>
-
-  	</div>
-
-</div>
-
-<!-- testing carousel here -->
-
-<!--<div class="carousel">
-    <div class="carousel-item" id="item1"><h1>Item 1</h1></div>
-    <div class="carousel-item" id="item2"><h1>Item 2</h1></div>
-    <div class="carousel-item" id="item3"><h1>Item 3</h1></div>
-    <div class="carousel-item" id="item4"><h1>Item 4</h1></div>
-    <div class="controls">
-        <a href="#item1" class="btn">•</a>
-        <a href="#item2" class="btn">•</a>
-        <a href="#item3" class="btn">•</a>
-        <a href="#item4" class="btn">•</a>
+    <div id="header">
+      <img id="logo" src="https://dl.dropboxusercontent.com/u/297682547/TIME%20MACHINE%20(2).png" alt="The Guardian: Time Machine">
+      <img id="logo-mobile" src="https://dl.dropboxusercontent.com/u/297682547/TIME%20MACHINE%20(3).png" alt="The Guardian: Time Machine">
     </div>
-</div>-->
 
-<!-- testing zone -->
+    <div id="intro-text">
+      <p>Put a topic and year into our Time Machine to read news IN THE PAST (from 1999).</p>
+    </div>
 
-<!--<div id="qunit"></div>
-<div id="qunit-fixture"></div>
-<script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+    <form type='submit'>
+      <div id="search-box-container">
 
-<div id="qunit"></div>
-<div id="qunit-fixture"></div>
-<script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>-->
+      <div class="search-box" id="topic">
+        <input type="text" id="searchTermInput" placeholder='asparagus' required="required">
+      </div>
+      <div class="search-box" id="year">
+        <input type="text" id="yearInput" placeholder='2001' required="required">
+      </div>
+      </br></br>
 
-<script type="text/javascript" src="ajax.js"></script>
+      <input id="go-button" type="button" onclick="gapi.runAjax()" value="GO">
+
+      </div>
+
+    </form>
+
+    </div>
+
+  </div>
+
+  <!--tab area starts here -->
+
+  <div id="results" class="tabbed-area">
+
+    <ul class="tabs">
+        <li>
+            <input type="radio" checked name="tabs" id="tab1">
+            <label id="labelTab1" for="tab1" class='tab-labels'>tab 1</label>
+            <div id="tab-content1" class="tab-content">
+                <h3>Tab 1</h3>
+                <!-- Your content goes here -->
+            </div>
+        </li>
+        <li>
+            <input type="radio" name="tabs" id="tab2">
+            <label id="labelTab2" for="tab2" class='tab-labels'>tab 2</label>
+            <div id="tab-content2" class="tab-content">
+                <h3>Tab 2</h3>
+                <!-- Your content goes here -->
+            </div>
+        </li>
+        <li>
+            <input type="radio" name="tabs" id="tab3">
+            <label id="labelTab3" for="tab3" class='tab-labels'>tab 3</label>
+            <div id="tab-content3" class="tab-content">
+                <h3>Tab 3</h3>
+                <!-- Your content goes here -->
+            </div>
+        </li>
+    </ul>
+
+    	</div>
+
+  </div>
+
+  <!-- testing carousel here -->
+
+  <!--<div class="carousel">
+      <div class="carousel-item" id="item1"><h1>Item 1</h1></div>
+      <div class="carousel-item" id="item2"><h1>Item 2</h1></div>
+      <div class="carousel-item" id="item3"><h1>Item 3</h1></div>
+      <div class="carousel-item" id="item4"><h1>Item 4</h1></div>
+      <div class="controls">
+          <a href="#item1" class="btn">•</a>
+          <a href="#item2" class="btn">•</a>
+          <a href="#item3" class="btn">•</a>
+          <a href="#item4" class="btn">•</a>
+      </div>
+  </div>-->
+
+  <!-- testing zone -->
+
+  <!--<div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>-->
+
+  <script type="text/javascript" src="ajax.js"></script>
 
 </BODY>
 </HTML>
