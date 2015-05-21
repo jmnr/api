@@ -35,6 +35,14 @@ gapi.displayResults = function(response) {
   document.getElementById('resultAuthor').innerHTML = "by " + response[0].fields.byline;
   */
   document.getElementById('labelTab1').innerHTML = response[0].webTitle;
+  /*
+  var elem = document.getElementById("#results");
+    elem.display = "initial";*/
+  document.getElementById("results").style.display = 'inherit';
+
+  $('go-button').click(function(){
+    $('div').toggleClass('opa');    
+  });
 
 };
 
@@ -47,6 +55,10 @@ gapi.runAjax = function() {
   var year = document.getElementById('yearInput').value.toString();
   var requestUrl = gapi.makeurl(searchterm, year);
   gapi.AjaxGetRequest(requestUrl, gapi.displayResults);
+};
+
+gapi.shorten = function(string) {
+  return string.length > 25 ? string.substring(0, 25) : string;
 };
 
 //////
