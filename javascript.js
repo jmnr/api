@@ -19,13 +19,7 @@ var gapi = (function(){
   }
 
   function displayResults (response) {
-    for (var i = 0; i < 3; i++) {
-      // console.log(document.getElementsByClassName('tab-labels')[i]);
-      document.getElementsByClassName('tab-labels')[i].innerHTML = gapi.shorten(response[i].webTitle);
-      // console.log(document.getElementsByClassName('tab-labels')[i]);
-      document.getElementsByClassName('tab-content')[i].innerHTML = response[i].fields.body;
-    }
-  }
+
     /*
     var list = document.getElementById('demo');
     for(var i = 0; i < 3; i++) {
@@ -41,9 +35,9 @@ var gapi = (function(){
     document.getElementById('resultBody').innerHTML = response[0].fields.body;
     document.getElementById('resultAuthor').innerHTML = "by " + response[0].fields.byline;
     */
-    
+
     // document.getElementById('labelTab1').innerHTML = response[0].webTitle;
-    
+
     // var elem = document.getElementById("#results");
     //   elem.display = "initial";
     // document.getElementById("results").style.display = 'inherit';
@@ -59,7 +53,9 @@ var gapi = (function(){
       document.getElementsByClassName('article-author')[i].innerHTML = "By " + response[i].fields.byline;
       document.getElementsByClassName('article-content')[i].innerHTML = response[i].fields.body;
   }
-    } 
+};
+
+  }
 
     // function cleanContent (responseunclean) {
     //   for (var j =0; j< responseunclean.length; j++)
@@ -108,8 +104,8 @@ var gapi = (function(){
   */
 
   function makeurl (searchterm, year) {
-    return ('http://content.guardianapis.com/search?' + 'from-date=' + 
-      year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' + 
+    return ('http://content.guardianapis.com/search?' + 'from-date=' +
+      year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' +
       searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' + "&show-fields=all" + "&show-most-viewed=true");
   };
 
@@ -138,9 +134,10 @@ var gapi = (function(){
 
   };
 
+  function shorten (string) {
     return string.length > 20 ? string.substring(0, 17) + '...' : string;
   };
-  
+
   function clearInputs () {
     document.getElementById('searchTermInput').value = "";
     document.getElementById('yearInput').value = "";
@@ -158,8 +155,8 @@ var gapi = (function(){
     setInterval( function() {
       document.getElementById('searchTermInput').setAttribute('placeholder', suggestTopic[Math.floor((Math.random()*10) + 1)]);
       document.getElementById('yearInput').setAttribute('placeholder', suggestYear[Math.floor((Math.random()*10) + 1)]);
-      console.log(document.getElementById('searchTermInput').placeholder);
-      console.log(document.getElementById('yearInput').placeholder);
+      // console.log(document.getElementById('searchTermInput').placeholder);
+      // console.log(document.getElementById('yearInput').placeholder);
      }, 1000);
   };
 
