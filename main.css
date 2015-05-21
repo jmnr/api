@@ -1,3 +1,7 @@
+* {
+  border: 1px dashed black;
+}
+
 body {
   background: #005689;
   font-family: 'Playfair Display', serif;
@@ -80,12 +84,21 @@ body {
 }
 
 #nav-dot-group > ul > li {
+  display:inline;
   list-style-type: none;
+  text-align: center;
+}
+
+#nav-dot-group > ul {
+  padding-right: 35px;
 }
 
 .nav-dots {
   background-color: white;
   border-radius: 300px;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
 }
 
 /**** Media Queries here ****/
