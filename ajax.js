@@ -43,11 +43,17 @@ gapi.makeurl = function(searchterm, year) {
 };
 
 gapi.runAjax = function() {
+  gapi.clearInputs();
   var searchterm = document.getElementById('searchTermInput').value.toString();
   var year = document.getElementById('yearInput').value.toString();
   var requestUrl = gapi.makeurl(searchterm, year);
   gapi.AjaxGetRequest(requestUrl, gapi.displayResults);
 };
+
+gapi.clearInputs = function() {
+  document.getElementById('searchTermInput').value = '';
+  document.getElementById('yearInput').value = '';
+}
 
 //////
 /*
