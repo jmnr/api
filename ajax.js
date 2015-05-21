@@ -34,7 +34,7 @@ gapi.displayResults = function(response) {
   document.getElementById('resultBody').innerHTML = response[0].fields.body;
   document.getElementById('resultAuthor').innerHTML = "by " + response[0].fields.byline;
   */
-  for (i=0; i<3; i++) {
+  for ( var i=0; i<3; i++) {
     // console.log(document.getElementsByClassName('tab-labels')[i]);
     document.getElementsByClassName('tab-labels')[i].innerHTML = gapi.shorten(response[i].webTitle);
     // console.log(document.getElementsByClassName('tab-labels')[i]);
