@@ -96,6 +96,11 @@ var gapi = (function(){
      }, 5000);
   }
 
+  function placeholderStop(){
+    document.getElementById('searchTermInput').setAttribute('placeholder', " ");
+    document.getElementById('yearInput').setAttribute('placeholder', " ");
+  }
+
   return {
     ajaxGetRequest: ajaxGetRequest,
     displayResults: displayResults,
@@ -104,16 +109,20 @@ var gapi = (function(){
     runAjax: runAjax,
     shorten: shorten,
     multipleInputs: multipleInputs,
-    changePlaceholder: changePlaceholder
+    changePlaceholder: changePlaceholder,
+    placeholderStop: placeholderStop
   };
 
 }());
 
 $(document).ready(function () {
   //hide result and input divs
-  document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
+  document.getElementById('go-button').addEventListener( "click", gapi.runAjax);
   gapi.changePlaceholder();
   // document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
+
+  document.getElementById('search-box-container').addEventListener( "click", gapi.placeholderStop);
+  document.getElementById('year').addEventListener( "click", gapi.placeholderStop);
 
   $("#results").hide();
 
