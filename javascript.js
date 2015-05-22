@@ -1,3 +1,5 @@
+//document.getElementById('go-button').addEventListener( "click", gapi.runAjax() });
+// onclick="gapi.runAjax()"
 var gapi = (function(){
   "use strict";
 
@@ -91,7 +93,8 @@ var gapi = (function(){
       document.getElementById('searchTermInput').setAttribute('placeholder', suggestTopic[Math.floor((Math.random()*10) + 1)]);
       document.getElementById('yearInput').setAttribute('placeholder', suggestYear[Math.floor((Math.random()*10) + 1)]);
      }, 1000);
-  }
+  };
+
 
   return {
     AjaxGetRequest: AjaxGetRequest,
@@ -107,18 +110,21 @@ var gapi = (function(){
 }());
 
 $(document).ready(function () {
-    //hide result and input divs
-    $("#results").hide();
+  //hide result and input divs
+  document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
+  gapi.changePlaceholder();
 
-    //enter key support
-    $('#searchTermInput').keypress(function(e){
-      if(e.keyCode === 13) $('#go-button').click();
-    });
-    $('#yearInput').keypress(function(e){
-      if(e.keyCode === 13) $('#go-button').click();
-    });
+  $("#results").hide();
 
-    $("#go-button").click(function() {
-        $("#results").fadeIn("slow");
-    });
+  //enter key support
+  $('#searchTermInput').keypress(function(e){
+    if(e.keyCode === 13) $('#go-button').click();
+  });
+  $('#yearInput').keypress(function(e){
+    if(e.keyCode === 13) $('#go-button').click();
+  });
+
+  $("#go-button").click(function() {
+      $("#results").fadeIn("slow");
+  });
 });
