@@ -123,11 +123,13 @@ var gapi = (function(){
         }
   }
 
-  function clickHandle(func){
-      return function(){
-        return gapi.jsonp(func);
-      };
-  function placeholderStop(){
+  function clickHandle (func) {
+    return function(){
+      return gapi.jsonp(func);
+    };
+  }
+
+  function placeholderStop () {
     document.getElementById('searchTermInput').setAttribute('placeholder', " ");
     document.getElementById('yearInput').setAttribute('placeholder', " ");
   }
@@ -143,7 +145,7 @@ var gapi = (function(){
     changePlaceholder: changePlaceholder,
     jsonp: jsonp,
     displayImages: displayImages,
-    clickHandle: clickHandle
+    clickHandle: clickHandle,
     placeholderStop: placeholderStop
   };
 
