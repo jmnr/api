@@ -55,7 +55,7 @@ var gapi = (function(){
     return ('http://content.guardianapis.com/search?' + 'from-date=' +
       year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' +
       searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' + "&show-fields=all" + "&show-most-viewed=true");
-    }
+    };
 
   function runAjax () {
     var searchterm = document.getElementById('searchTermInput').value.toString();
@@ -106,19 +106,19 @@ var gapi = (function(){
 
 }());
 
-// $(document).ready(function () {
-//     //hide result and input divs
-//     $("#results").hide();
-//
-//     //enter key support
-//     $('#searchTermInput').keypress(function(e){
-//       if(e.keyCode === 13) $('#go-button').click();
-//     });
-//     $('#yearInput').keypress(function(e){
-//       if(e.keyCode === 13) $('#go-button').click();
-//     });
-//
-//     $("#go-button").click(function() {
-//         $("#results").fadeIn("slow");
-//     });
-// });
+$(document).ready(function () {
+    //hide result and input divs
+    $("#results").hide();
+
+    //enter key support
+    $('#searchTermInput').keypress(function(e){
+      if(e.keyCode === 13) $('#go-button').click();
+    });
+    $('#yearInput').keypress(function(e){
+      if(e.keyCode === 13) $('#go-button').click();
+    });
+
+    $("#go-button").click(function() {
+        $("#results").fadeIn("slow");
+    });
+});

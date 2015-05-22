@@ -1,15 +1,19 @@
 function toggleSlide(direction) {
     var elements = document.getElementsByClassName("hideable");
-    var visibleID = getVisible(elements);
+    var navdots = document.getElementsByClassName('nav-dots');
+    var visibleID = getVisible(elements,navdots);
     elements[visibleID].style.display = "none";
     if(!direction) {
+        navdots[visibleID].style.border = "";
         var makeVisible = prev(visibleID, elements.length);
     } else {
+        navdots[visibleID].style.border = "";
         var makeVisible = next(visibleID, elements.length);
     }
     elements[makeVisible].style.display = "block";
+    navdots[makeVisible].style.border = "solid black 3px";
 }
-function getVisible(elements) {
+function getVisible(elements,navdots) {
     var visibleID = -1;
     for(var i = 0; i < elements.length; i++) {
         if(elements[i].style.display == "block") {
