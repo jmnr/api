@@ -59,7 +59,7 @@ body {
 }
 
 #go-button:hover {
-  filter: alpha(opacity=30);
+  filter: alpha(opacity = 30);
   opacity: 0.3;
 }
 
@@ -115,8 +115,13 @@ body {
     display: none;
 }
 
+/**** Styles for instagram ****/
+
 #instaTable {
-    margin: 0 auto;
+}
+
+.instagram-image {
+  display: inline-block;
 }
 
 /**** Media Queries here ****/
@@ -158,6 +163,7 @@ body {
   #go-button {
     font-size: 14px;
     height: 25px;
+    text-align: center;
     width: 40px;
   }
 
