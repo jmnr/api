@@ -2,8 +2,6 @@ var gapi = (function(){
   "use strict";
 
   function ajaxGetRequest (searchurl, callback){
-  document.getElementsByClassName('nav-dots')[1].style.border = "";
-  document.getElementsByClassName('nav-dots')[2].style.border = "";
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function(){
       if (httpRequest.readyState === 4) {
@@ -46,6 +44,8 @@ var gapi = (function(){
         }
       }
 
+      document.getElementsByClassName('nav-dots')[1].style.border = "";
+      document.getElementsByClassName('nav-dots')[2].style.border = "";
       document.getElementsByClassName('nav-dots')[0].style.border = "solid black 3px";
 
   }
@@ -101,9 +101,9 @@ var gapi = (function(){
     var url = 'https://api.instagram.com/v1/tags/' + searchterm + '/media/recent?access_token=337128822.3210389.55a4db088dcf438bad39ec9a4eb34390';
     var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
     window[callbackName] = function(data) {
-    delete window[callbackName];
-    document.body.removeChild(script);
-    callback(data);
+      delete window[callbackName];
+      document.body.removeChild(script);
+      callback(data);
     };
 
     var script = document.createElement('script');

@@ -111,6 +111,11 @@ body {
 
 /**** Styles for carousel ****/
 
+#articles-style {
+  list-style-type: none;
+  margin-left: -2em;
+}
+
 .hideable {
     display: none;
 }
