@@ -31,7 +31,7 @@ var gapi = (function(){
         var authors = document.getElementsByClassName('article-author');
         var content = document.getElementsByClassName('article-content');
         var readmore = document.getElementsByClassName('read-more');
-        
+
       for (var i = 0; i < 3; i++) {
         titles[i].innerHTML = response[i].webTitle;
 
@@ -129,5 +129,8 @@ $(document).ready(function () {
 
   $("#go-button").click(function() {
       $("#results").fadeIn("slow");
+      $('html, body').animate({
+        scrollTop: $("#results").offset().top
+      }, 1000);
   });
 });
