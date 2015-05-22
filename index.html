@@ -1,23 +1,24 @@
 <!DOCTYPE HTML>
-<HTML>
+<html>
 
-<HEAD>
+<head>
 
   <link rel="shortcut icon" href="http://www.iconj.com/ico/5/6/56eooe718a.ico" type="image/x-icon"/>
   <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
   <title>The Guardian Time Machine</title>
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
-  <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-</HEAD>
+</head>
 
-<BODY>
+<body>
 
   <div id="qunit"></div>
   <div id="qunit-fixture"></div>
 
-  <div id="content">
+  <div class="content">
 
     <div id="header">
       <img id="logo" src="https://dl.dropboxusercontent.com/u/297682547/TIME%20MACHINE%20(2).png" alt="The Guardian: Time Machine">
@@ -28,13 +29,13 @@
       <p>Put a topic and year into our Time Machine to read news IN THE PAST.</p>
     </div>
 
-    <form type='submit'>
+    <form type="submit">
       <div id="search-box-container">
         <div class="search-box" id="topic">
-          <input type="text" id="searchTermInput" placeholder='asparagus' required="required">
+          <input type="text" id="searchTermInput" placeholder="asparagus" required="required">
         </div>
         <div class="search-box" id="year">
-          <input type="text" id="yearInput" placeholder='2001' required="required">
+          <input type="text" id="yearInput" placeholder="2001" required="required">
         </div>
         </br>
         </br>
@@ -44,20 +45,16 @@
 
   </div>
 
-</div>
-
-<!--carousel area starts here -->
+<!-- carousel area starts here -->
 
 <div id="button-area">
 
   <ul>
 
-    <li>
-      <div class="buttons">
+    <li class="buttons">
         <form>
           <input class="prev-next" type="button" value="<" onclick="toggleSlide()" />
         </form>
-      </div>
     </li>
 
     <li>
@@ -70,19 +67,17 @@
       </div>
     </li>
 
-    <li>
-      <div class="buttons">
+    <li class="buttons">
         <form>
           <input class="prev-next" type="button" value=">" onclick="toggleSlide(true)" />
         </form>
-      </div>
     </li>
 
   </ul>
 
 </div>
 
-<div id="content">
+<div class="content">
 
   <ul style="list-style-type: none; margin-left: -2em;">
     <li id="1" class="hideable" style="display: block;">
@@ -106,8 +101,6 @@
   </ul>
     </div>
 
-  </div>
-
   <!-- <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
   <script type="text/javascript" src="apitests.js"></script> -->
 
@@ -115,6 +108,6 @@
   <script type="text/javascript" src="carousel.js"></script>
   <script type="text/javascript" src="javascript.js"></script>
 
-</BODY>
+</body>
 
-</HTML>
+</html>
