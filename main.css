@@ -117,14 +117,11 @@ body {
 
 /**** Styles for instagram ****/
 
-#instaTable {
-}
-
-/**** Media Queries here ****/
-
 .instagram-image {
   display: inline-block;
 }
+
+/**** Media Queries here ****/
 
 @media (max-width: 700px){
 
@@ -198,6 +195,11 @@ body {
   #results {
     margin: 10px 10px 0;
     padding: 10px 10px 10px;
+  }
+
+  .instagram {
+    height: 230px;
+    width: 230px;
   }
 
 }
