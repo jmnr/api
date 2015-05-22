@@ -112,7 +112,6 @@ var gapi = (function(){
   }
 
   function displayImages(instaImages) {
-    document.getElementById('instaTable').visibility = "visible";
     var imageBox = document.getElementsByClassName('instagram');
     for(var i = 0; i < imageBox.length; i++) {
       console.log(instaImages.data[i].images.low_resolution.url);
@@ -136,12 +135,13 @@ var gapi = (function(){
       var navdots = document.getElementsByClassName('nav-dots');
       var visibleID = getVisible(elements,navdots);
       elements[visibleID].style.display = "none";
+      var makeVisible;
       if(!direction) {
           navdots[visibleID].style.border = "";
-          var makeVisible = prev(visibleID, elements.length);
+          makeVisible = prev(visibleID, elements.length);
       } else {
           navdots[visibleID].style.border = "";
-          var makeVisible = next(visibleID, elements.length);
+          makeVisible = next(visibleID, elements.length);
       }
       elements[makeVisible].style.display = "block";
       navdots[makeVisible].style.border = "solid black 3px";
@@ -158,7 +158,7 @@ var gapi = (function(){
   }
 
   function prev (num, arrayLength) {
-      if(num == 0) {
+      if(num === 0) {
         return arrayLength-1;
       } else {
         return num-1;
