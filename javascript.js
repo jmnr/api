@@ -1,5 +1,3 @@
-//document.getElementById('go-button').addEventListener( "click", gapi.runAjax() });
-// onclick="gapi.runAjax()"
 var gapi = (function(){
   "use strict";
 
@@ -32,14 +30,19 @@ var gapi = (function(){
         var authors = document.getElementsByClassName('article-author');
         var content = document.getElementsByClassName('article-content');
         var readmore = document.getElementsByClassName('read-more');
+
       for (var i = 0; i < 3; i++) {
         titles[i].innerHTML = response[i].webTitle;
+
         if (response[i].fields.byline !== undefined) {
           if (response[i].fields.byline.substring(0,2) === "By") {
             authors[i].innerHTML = response[i].fields.byline; }
           else { authors[i].innerHTML = "By " + response[i].fields.byline; }
         }
-        content[i].innerHTML = response[i].fields.body;
+
+        var text = response[i].fields.body;
+        content[i].innerHTML = text.length > 1000 ? text.substring(0, 1000) + '...' : text;
+
         readmore[i].setAttribute('href', response[i].webUrl);
         }
       }
@@ -48,22 +51,11 @@ var gapi = (function(){
 
   }
 
-    // function cleanContent (responseunclean) {
-    //   for (var j =0; j< responseunclean.length; j++)
-    //     for (var i = [webTitle, body, byLine, webUrl]) {
-    //       if (response[j].i == undefined)
-    //       {
-
-    //       }
-    //     }
-
-    // }
-
   function makeurl (searchterm, year) {
     return ('http://content.guardianapis.com/search?' + 'from-date=' +
       year + '-01-01' + '&to-date=' + year + '-12-31' + '&order-by-relevance'+'&show-tags=keyword'+'&q=' +
       searchterm + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' + "&show-fields=all" + "&show-most-viewed=true");
-    }
+  }
 
   function runAjax () {
     var searchterm = document.getElementById('searchTermInput').value.toString();
@@ -75,7 +67,7 @@ var gapi = (function(){
     var requestUrl = gapi.makeurl(searchterm, year);
     gapi.ajaxGetRequest(requestUrl, gapi.displayResults);
     return requestUrl;
-    }
+  }
 
   function clearInputs (){
     document.getElementById('searchTermInput').value = "";
@@ -136,6 +128,9 @@ var gapi = (function(){
       return function(){
         return gapi.jsonp(func);
       };
+  function placeholderStop(){
+    document.getElementById('searchTermInput').setAttribute('placeholder', " ");
+    document.getElementById('yearInput').setAttribute('placeholder', " ");
   }
 
   return {
@@ -150,21 +145,25 @@ var gapi = (function(){
     jsonp: jsonp,
     displayImages: displayImages,
     clickHandle: clickHandle
+    placeholderStop: placeholderStop
   };
 
 }());
 
 $(document).ready(function () {
   //hide result and input divs
-  document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
+  document.getElementById('go-button').addEventListener( "click", gapi.runAjax);
   gapi.changePlaceholder();
   document.getElementById('instagram-go-button').addEventListener( "click", gapi.clickHandle(gapi.displayImages));
+
+  document.getElementById('search-box-container').addEventListener( "click", gapi.placeholderStop);
+  document.getElementById('year').addEventListener( "click", gapi.placeholderStop);
 
   $("#results").hide();
 
   //enter key support
   $('#searchTermInput').keypress(function(e){
-    if(e.keyCode === 13) $('#go-button').click();
+    if(e.keyCode == 13) $('#go-button').click();
   });
   $('#yearInput').keypress(function(e){
     if(e.keyCode === 13) $('#go-button').click();
@@ -172,5 +171,8 @@ $(document).ready(function () {
 
   $("#go-button").click(function() {
       $("#results").fadeIn("slow");
+      $('html, body').animate({
+        scrollTop: $("#results").offset().top
+      }, 1000);
   });
 });
