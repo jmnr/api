@@ -10,7 +10,7 @@ body {
 
 /**** Styles for input/search section ****/
 
-#content {
+.content {
   background: white;
   border-radius: 25px;
   margin: 50px 100px 50px;
@@ -119,7 +119,9 @@ body {
 
 @media (max-width: 700px){
 
-  #content {
+  /** Search/input area **/
+
+  .content {
     margin: 0 10px 10px;
     padding: 10px 10px 10px;
   }
@@ -155,12 +157,14 @@ body {
     width: 40px;
   }
 
+  /** Button area **/
+
   #buttons {
-    padding: 10px 10px 10px 10px;
+    padding: 10px 0 10px;
   }
 
   #button-area {
-    padding:0 3px 0;
+    padding-right: 40px;
     text-align: center;
   }
 
@@ -171,15 +175,15 @@ body {
   }
 
   #nav-dot-group > ul {
-    padding-right: 40px;
-    padding-bottom: 20px;
+    display: none;
   }
 
-  /*.nav-dots {
-    border-radius: 300px;
-    background-color: white;
-    display: inline-block;
-  }*/
+  .nav-dots {
+    height:7px;
+    width: 7px;
+  }
+
+  /** Results area **/
 
   #results {
     margin: 10px 10px 0;
