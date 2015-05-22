@@ -18,7 +18,6 @@ var gapi = (function(){
   }
 
   function displayResults (response) {
-
     if (response.length === 0) {
       alert("Looks like there aren't any results to display! Try a different search term!");
     }
