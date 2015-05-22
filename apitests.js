@@ -54,3 +54,8 @@ test("content is diplayed in the second tab", function(assert){
 	      		}, 200);
    		}, 200);
   });
+
+test("when go button is clicked placeholder stops cycling suggestions", function(assert) {
+  var placeholderTester = document.getElementById('searchTermInput').innerHTML
+  equal(placeholderTester, "full")  
+});

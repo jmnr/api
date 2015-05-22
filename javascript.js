@@ -1,5 +1,3 @@
-//document.getElementById('go-button').addEventListener( "click", gapi.runAjax() });
-// onclick="gapi.runAjax()"
 var gapi = (function(){
   "use strict";
 
@@ -31,7 +29,7 @@ var gapi = (function(){
         var authors = document.getElementsByClassName('article-author');
         var content = document.getElementsByClassName('article-content');
         var readmore = document.getElementsByClassName('read-more');
-        
+
       for (var i = 0; i < 3; i++) {
         titles[i].innerHTML = response[i].webTitle;
 
@@ -98,6 +96,11 @@ var gapi = (function(){
      }, 5000);
   }
 
+  function placeholderStop(){
+    document.getElementById('searchTermInput').setAttribute('placeholder', " ");
+    document.getElementById('yearInput').setAttribute('placeholder', " ");
+  }
+
   return {
     ajaxGetRequest: ajaxGetRequest,
     displayResults: displayResults,
@@ -106,16 +109,20 @@ var gapi = (function(){
     runAjax: runAjax,
     shorten: shorten,
     multipleInputs: multipleInputs,
-    changePlaceholder: changePlaceholder
+    changePlaceholder: changePlaceholder,
+    placeholderStop: placeholderStop
   };
 
 }());
 
 $(document).ready(function () {
   //hide result and input divs
-  document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
+  document.getElementById('go-button').addEventListener( "click", gapi.runAjax);
   gapi.changePlaceholder();
   // document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
+
+  document.getElementById('search-box-container').addEventListener( "click", gapi.placeholderStop);
+  document.getElementById('year').addEventListener( "click", gapi.placeholderStop);
 
   $("#results").hide();
 
@@ -129,5 +136,8 @@ $(document).ready(function () {
 
   $("#go-button").click(function() {
       $("#results").fadeIn("slow");
+      $('html, body').animate({
+        scrollTop: $("#results").offset().top
+      }, 1000);
   });
 });
