@@ -22,7 +22,6 @@ var gapi = (function(){
   }
 
   function displayResults (response) {
-
     if (response.length === 0) {
       alert("Looks like there aren't any results to display! Try a different search term!");
     }
@@ -37,9 +36,7 @@ var gapi = (function(){
         titles[i].innerHTML = response[i].webTitle;
 
         if (response[i].fields.byline !== undefined) {
-          if (response[i].fields.byline.substring(0,2) === "By") {
-            authors[i].innerHTML = response[i].fields.byline; }
-          else { authors[i].innerHTML = "By " + response[i].fields.byline; }
+          authors[i].innerHTML = response[i].fields.byline;
         }
 
         var text = response[i].fields.body;
@@ -100,10 +97,8 @@ var gapi = (function(){
   }
 
   function jsonp(callback) {
-    var searchterm = document.getElementById('searchTermInput').value.toString();
-    console.log(searchterm);
+    var searchterm = document.getElementById('searchTermInput').value.toString() || document.getElementById('searchTermInput').placeholder;
     var url = 'https://api.instagram.com/v1/tags/' + searchterm + '/media/recent?access_token=337128822.3210389.55a4db088dcf438bad39ec9a4eb34390';
-    console.log(url);
     var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
     window[callbackName] = function(data) {
     delete window[callbackName];
@@ -117,24 +112,65 @@ var gapi = (function(){
   }
 
   function displayImages(instaImages) {
-        console.log("entered image funciton");
-        document.getElementById('instaTable').visibility = "visible";
-        var imageBox = document.getElementsByClassName('instagram');
-        console.log(imageBox);
-        for(var i = 0; i < imageBox.length; i++) {
-         imageBox[i].src = instaImages.data[i].images.low_resolution.url;
-        }
+    document.getElementById('instaTable').visibility = "visible";
+    var imageBox = document.getElementsByClassName('instagram');
+    for(var i = 0; i < imageBox.length; i++) {
+      console.log(instaImages.data[i].images.low_resolution.url);
+      imageBox[i].src = instaImages.data[i].images.low_resolution.url;
+    }
   }
 
-  function clickHandle(func){
-      return function(){
-        return gapi.jsonp(func);
-      };
+  function clickHandle (func) {
+    return function(){
+      return gapi.jsonp(func);
+    };
   }
 
-  function placeholderStop(){
+  function placeholderStop () {
     document.getElementById('searchTermInput').setAttribute('placeholder', " ");
     document.getElementById('yearInput').setAttribute('placeholder', " ");
+  }
+
+  function toggleSlide (direction) {
+      var elements = document.getElementsByClassName("hideable");
+      var navdots = document.getElementsByClassName('nav-dots');
+      var visibleID = getVisible(elements,navdots);
+      elements[visibleID].style.display = "none";
+      if(!direction) {
+          navdots[visibleID].style.border = "";
+          var makeVisible = prev(visibleID, elements.length);
+      } else {
+          navdots[visibleID].style.border = "";
+          var makeVisible = next(visibleID, elements.length);
+      }
+      elements[makeVisible].style.display = "block";
+      navdots[makeVisible].style.border = "solid black 3px";
+  }
+
+  function getVisible (elements,navdots) {
+      var visibleID = -1;
+      for(var i = 0; i < elements.length; i++) {
+          if(elements[i].style.display == "block") {
+              visibleID = i;
+          }
+      }
+      return visibleID;
+  }
+
+  function prev (num, arrayLength) {
+      if(num == 0) {
+        return arrayLength-1;
+      } else {
+        return num-1;
+      }
+  }
+
+  function next (num, arrayLength) {
+      if(num == arrayLength-1) {
+        return 0;
+      } else {
+        return num+1;
+      }
   }
 
   return {
@@ -149,16 +185,22 @@ var gapi = (function(){
     jsonp: jsonp,
     displayImages: displayImages,
     clickHandle: clickHandle,
-    placeholderStop: placeholderStop
+    placeholderStop: placeholderStop,
+    toggleSlide: toggleSlide,
+    getVisible: getVisible,
+    prev: prev,
+    next: next
+
   };
 
 }());
 
 $(document).ready(function () {
   //hide result and input divs
-  document.getElementById('go-button').addEventListener( "click", gapi.runAjax);
   gapi.changePlaceholder();
-  document.getElementById('instagram-go-button').addEventListener( "click", gapi.clickHandle(gapi.displayImages));
+
+  document.getElementById('go-button').addEventListener( "click", gapi.runAjax);
+  document.getElementById('go-button').addEventListener( "click", gapi.clickHandle(gapi.displayImages));
 
   document.getElementById('search-box-container').addEventListener( "click", gapi.placeholderStop);
   document.getElementById('year').addEventListener( "click", gapi.placeholderStop);
