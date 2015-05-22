@@ -105,6 +105,11 @@ var gapi = (function(){
      }, 5000);
   }
 
+  function placeholderStop(){
+    document.getElementById('searchTermInput').setAttribute('placeholder', "");
+    document.getElementById('yearInput').setAttribute('placeholder', "");
+  }
+
 
   return {
     AjaxGetRequest: AjaxGetRequest,
@@ -121,7 +126,7 @@ var gapi = (function(){
 
 $(document).ready(function () {
   //hide result and input divs
-  document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
+  document.getElementById('go-button').addEventListener( "click", gapi.runAjax);
   gapi.changePlaceholder();
   // document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
 
