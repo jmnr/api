@@ -10,7 +10,7 @@ body {
 
 /**** Styles for input/search section ****/
 
-#content {
+.content {
   background: white;
   border-radius: 25px;
   margin: 50px 100px 50px;
@@ -63,10 +63,16 @@ body {
   opacity: 0.3;
 }
 
-/**** Styles for carousel section ****/
+/**** Styles for buttons ****/
 
-.hideable {
-    display: none;
+#button-area {
+  padding-right:35px;
+}
+
+#button-area > ul > li {
+  display:inline-block;
+  padding:0 10px 0;
+
 }
 
 .prev-next {
@@ -86,11 +92,13 @@ body {
 #nav-dot-group > ul > li {
   display:inline;
   list-style-type: none;
+  padding:0 10px 0;
   text-align: center;
 }
 
 #nav-dot-group > ul {
-  padding-right: 35px;
+  padding-right: 50px;
+  padding-bottom: 20px;
 }
 
 .nav-dots {
@@ -101,11 +109,19 @@ body {
   width: 10px;
 }
 
+/**** Styles for carousel ****/
+
+.hideable {
+    display: none;
+}
+
 /**** Media Queries here ****/
 
 @media (max-width: 700px){
 
-  #content {
+  /** Search/input area **/
+
+  .content {
     margin: 0 10px 10px;
     padding: 10px 10px 10px;
   }
@@ -141,8 +157,15 @@ body {
     width: 40px;
   }
 
+  /** Button area **/
+
   #buttons {
-    padding: 10px 10px 10px 10px;
+    padding: 10px 0 10px;
+  }
+
+  #button-area {
+    padding-right: 40px;
+    text-align: center;
   }
 
   .prev-next {
@@ -151,11 +174,16 @@ body {
     width: 40px;
   }
 
-  /*.nav-dots {
-    border-radius: 300px;
-    background-color: white;
-    display: inline-block;
-  }*/
+  #nav-dot-group > ul {
+    display: none;
+  }
+
+  .nav-dots {
+    height:7px;
+    width: 7px;
+  }
+
+  /** Results area **/
 
   #results {
     margin: 10px 10px 0;

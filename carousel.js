@@ -11,7 +11,7 @@ function toggleSlide(direction) {
         var makeVisible = next(visibleID, elements.length);
     }
     elements[makeVisible].style.display = "block";
-    navdots[makeVisible].style.border = "solid red 5px";
+    navdots[makeVisible].style.border = "solid black 3px";
 }
 function getVisible(elements,navdots) {
     var visibleID = -1;
