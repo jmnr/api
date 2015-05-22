@@ -17,6 +17,8 @@ var gapi = (function(){
     };
     httpRequest.open("GET", searchurl, true);
     httpRequest.send();
+
+    return httpRequest;
   }
 
   function displayResults (response) {
@@ -126,7 +128,7 @@ var gapi = (function(){
     };
   }
 
-  function placeholderStop (){
+  function placeholderStop () {
     document.getElementById('searchTermInput').setAttribute('placeholder', " ");
     document.getElementById('yearInput').setAttribute('placeholder', " ");
   }

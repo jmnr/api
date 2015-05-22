@@ -57,5 +57,16 @@ test("content is diplayed in the second tab", function(assert){
 
 test("when go button is clicked placeholder stops cycling suggestions", function(assert) {
   var placeholderTester = document.getElementById('searchTermInput').innerHTML
-  equal(placeholderTester, "full")  
+  equal(placeholderTester, "")  
+});
+
+test("check that ajaxGetRequest get a response from the guardian api", function(assert) {
+ var done = assert.async();
+ var ajaxTestResponse  = gapi.ajaxGetRequest('http://content.guardianapis.com/search?' + 'from-date=' + "1999" + '-01-01' + '&to-date=' + "1999" + '-12-31' +
+      '&order-by-relevance'+'&show-tags=keyword'+'&q=' + "tennis" + '&api-key=2crhgqs3wjpe4vkh9x5j86yt' + "&show-fields=all" + "&show-most-viewed=true", function(){});
+ setTimeout(function() {
+             equal( ajaxTestResponse.readyState, 4)  
+              done();
+            }, 200);
+
 });
