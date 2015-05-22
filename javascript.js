@@ -38,6 +38,8 @@ var gapi = (function(){
         }
       };
 
+      document.getElementsByClassName('nav-dots')[0].style.border = "solid black 3px";
+
   }
 
     // function cleanContent (responseunclean) {
