@@ -1,5 +1,3 @@
-//document.getElementById('go-button').addEventListener( "click", gapi.runAjax() });
-// onclick="gapi.runAjax()"
 var gapi = (function(){
   "use strict";
 
