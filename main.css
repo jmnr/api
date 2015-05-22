@@ -115,6 +115,10 @@ body {
     display: none;
 }
 
+#instaTable {
+    margin: 0 auto;
+}
+
 /**** Media Queries here ****/
 
 @media (max-width: 700px){
