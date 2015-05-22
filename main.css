@@ -120,11 +120,11 @@ body {
 #instaTable {
 }
 
+/**** Media Queries here ****/
+
 .instagram-image {
   display: inline-block;
 }
-
-/**** Media Queries here ****/
 
 @media (max-width: 700px){
 
