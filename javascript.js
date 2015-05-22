@@ -2,6 +2,8 @@ var gapi = (function(){
   "use strict";
 
   function ajaxGetRequest (searchurl, callback){
+  document.getElementsByClassName('nav-dots')[1].style.border = "";
+  document.getElementsByClassName('nav-dots')[2].style.border = "";
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function(){
       if (httpRequest.readyState === 4) {
@@ -24,7 +26,6 @@ var gapi = (function(){
     }
 
     else {
-
         var titles = document.getElementsByClassName('titles');
         var authors = document.getElementsByClassName('article-author');
         var content = document.getElementsByClassName('article-content');
@@ -96,6 +97,37 @@ var gapi = (function(){
      }, 5000);
   }
 
+  function jsonp(callback) {
+    var searchterm = document.getElementById('searchTermInput').value.toString();
+    console.log(searchterm);
+    var url = 'https://api.instagram.com/v1/tags/' + searchterm + '/media/recent?access_token=337128822.3210389.55a4db088dcf438bad39ec9a4eb34390';
+    console.log(url);
+    var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+    window[callbackName] = function(data) {
+    delete window[callbackName];
+    document.body.removeChild(script);
+    callback(data);
+    };
+
+    var script = document.createElement('script');
+    script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
+    document.body.appendChild(script);
+  }
+
+  function displayImages(instaImages) {
+        console.log("entered image funciton");
+        document.getElementById('instaTable').visibility = "visible";
+        var imageBox = document.getElementsByClassName('instagram');
+        console.log(imageBox);
+        for(var i = 0; i < imageBox.length; i++) {
+         imageBox[i].src = instaImages.data[i].images.low_resolution.url;
+        }
+  }
+
+  function clickHandle(func){
+      return function(){
+        return gapi.jsonp(func);
+      };
   function placeholderStop(){
     document.getElementById('searchTermInput').setAttribute('placeholder', " ");
     document.getElementById('yearInput').setAttribute('placeholder', " ");
@@ -110,6 +142,9 @@ var gapi = (function(){
     shorten: shorten,
     multipleInputs: multipleInputs,
     changePlaceholder: changePlaceholder,
+    jsonp: jsonp,
+    displayImages: displayImages,
+    clickHandle: clickHandle
     placeholderStop: placeholderStop
   };
 
@@ -119,7 +154,7 @@ $(document).ready(function () {
   //hide result and input divs
   document.getElementById('go-button').addEventListener( "click", gapi.runAjax);
   gapi.changePlaceholder();
-  // document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
+  document.getElementById('instagram-go-button').addEventListener( "click", gapi.clickHandle(gapi.displayImages));
 
   document.getElementById('search-box-container').addEventListener( "click", gapi.placeholderStop);
   document.getElementById('year').addEventListener( "click", gapi.placeholderStop);
