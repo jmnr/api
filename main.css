@@ -115,8 +115,13 @@ body {
     display: none;
 }
 
+/**** Styles for instagram ****/
+
 #instaTable {
-    margin: 0 auto;
+}
+
+.instagram-image {
+  display: inline-block;
 }
 
 /**** Media Queries here ****/
