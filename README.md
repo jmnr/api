@@ -14,11 +14,6 @@ There are lots of test/research files here that will be tidied up but for the ti
 
 The website is live at [guardiantimemachine.com](http://jmnr.github.io/api/)
 
-## To Do:
-
-+ Error Handling
-
-
 ## Day 1 Workflow:
 
 + concept development
@@ -47,9 +42,17 @@ The website is live at [guardiantimemachine.com](http://jmnr.github.io/api/)
 + Added multiple serach term functionality
 + Add a 'most viewed' filter for best results to show up
 
+## Day 4 Workflow:
+
++ Added instagram images to the mix
++ A lot of refactoring
++ Tidied up mobile css
++ Finished off the tests
+
 ## How to Test
 
 + Open the file named testFile.html. This is a duplicated of the test file with qunit added to it.
 + The page will automatically run the tests in a file named 'tests.js', to view individual tests open this file.  
+
 
 
