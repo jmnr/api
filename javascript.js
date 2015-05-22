@@ -97,10 +97,8 @@ var gapi = (function(){
   }
 
   function jsonp(callback) {
-    var searchterm = document.getElementById('searchTermInput').value.toString();
-    console.log(searchterm);
+    var searchterm = document.getElementById('searchTermInput').value.toString() || document.getElementById('searchTermInput').placeholder;
     var url = 'https://api.instagram.com/v1/tags/' + searchterm + '/media/recent?access_token=337128822.3210389.55a4db088dcf438bad39ec9a4eb34390';
-    console.log(url);
     var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
     window[callbackName] = function(data) {
     delete window[callbackName];
@@ -114,13 +112,12 @@ var gapi = (function(){
   }
 
   function displayImages(instaImages) {
-        console.log("entered image funciton");
-        document.getElementById('instaTable').visibility = "visible";
-        var imageBox = document.getElementsByClassName('instagram');
-        console.log(imageBox);
-        for(var i = 0; i < imageBox.length; i++) {
-         imageBox[i].src = instaImages.data[i].images.low_resolution.url;
-        }
+    document.getElementById('instaTable').visibility = "visible";
+    var imageBox = document.getElementsByClassName('instagram');
+    for(var i = 0; i < imageBox.length; i++) {
+      console.log(instaImages.data[i].images.low_resolution.url);
+      imageBox[i].src = instaImages.data[i].images.low_resolution.url;
+    }
   }
 
   function clickHandle (func) {
@@ -129,7 +126,7 @@ var gapi = (function(){
     };
   }
 
-  function placeholderStop () {
+  function placeholderStop (){
     document.getElementById('searchTermInput').setAttribute('placeholder', " ");
     document.getElementById('yearInput').setAttribute('placeholder', " ");
   }
@@ -153,9 +150,10 @@ var gapi = (function(){
 
 $(document).ready(function () {
   //hide result and input divs
-  document.getElementById('go-button').addEventListener( "click", gapi.runAjax);
   gapi.changePlaceholder();
-  document.getElementById('instagram-go-button').addEventListener( "click", gapi.clickHandle(gapi.displayImages));
+
+  document.getElementById('go-button').addEventListener( "click", gapi.runAjax);
+  document.getElementById('go-button').addEventListener( "click", gapi.clickHandle(gapi.displayImages));
 
   document.getElementById('search-box-container').addEventListener( "click", gapi.placeholderStop);
   document.getElementById('year').addEventListener( "click", gapi.placeholderStop);
