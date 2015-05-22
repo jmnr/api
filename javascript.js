@@ -26,34 +26,31 @@ var gapi = (function(){
     }
 
     else {
-        // cleanContent(response);
 
         var titles = document.getElementsByClassName('titles');
         var authors = document.getElementsByClassName('article-author');
         var content = document.getElementsByClassName('article-content');
         var readmore = document.getElementsByClassName('read-more');
+        
       for (var i = 0; i < 3; i++) {
         titles[i].innerHTML = response[i].webTitle;
-        authors[i].innerHTML = "By " + response[i].fields.byline;
-        //whatever = response[i].fields.thumbnail;
+
+        if (response[i].fields.byline !== undefined) {
+          if (response[i].fields.byline.substring(0,2) === "By") {
+            authors[i].innerHTML = response[i].fields.byline; }
+          else { authors[i].innerHTML = "By " + response[i].fields.byline; }
+        }
+
         var text = response[i].fields.body;
         content[i].innerHTML = text.length > 1000 ? text.substring(0, 1000) + '...' : text;
+
         readmore[i].setAttribute('href', response[i].webUrl);
         }
       }
 
+      document.getElementsByClassName('nav-dots')[0].style.border = "solid black 3px";
+
   }
-
-    // function cleanContent (responseunclean) {
-    //   for (var j =0; j< responseunclean.length; j++)
-    //     for (var i = [webTitle, body, byLine, webUrl]) {
-    //       if (response[j].i == undefined)
-    //       {
-
-    //       }
-    //     }
-
-    // }
 
   function makeurl (searchterm, year) {
     return ('http://content.guardianapis.com/search?' + 'from-date=' +
@@ -64,6 +61,10 @@ var gapi = (function(){
   function runAjax () {
     var searchterm = document.getElementById('searchTermInput').value.toString();
     var year = document.getElementById('yearInput').value.toString();
+    if (searchterm === "" || year === "") {
+      searchterm = document.getElementById('searchTermInput').placeholder;
+      year = document.getElementById('yearInput').placeholder;
+    }
     var requestUrl = gapi.makeurl(searchterm, year);
     gapi.ajaxGetRequest(requestUrl, gapi.displayResults);
     return requestUrl;
@@ -88,13 +89,13 @@ var gapi = (function(){
   }
 
   function changePlaceholder (){
-    var suggestTopic = ["Kangaroo", "Computer", "Penguins", "Narwhal", "3D Printing", "Honolulu", "Apple", "French People", "Llama", "Aubergine", "Christmas", "Ireland", "Technology", "Helicopter", "Beard", "Beer", "Pork", "Travel", "Fireworks", "Podcast"];
+    var suggestTopic = ["kangaroo", "computer", "penguins", "narwhal", "3D printing", "honolulu", "apple", "french people", "llama", "aubergine", "christmas", "ireland", "technology", "helicopter", "beard", "beer", "pork", "travel", "fireworks", "podcast"];
     var suggestYear = ["1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015"];
 
     setInterval( function() {
       document.getElementById('searchTermInput').setAttribute('placeholder', suggestTopic[Math.floor((Math.random()*10) + 1)]);
       document.getElementById('yearInput').setAttribute('placeholder', suggestYear[Math.floor((Math.random()*10) + 1)]);
-     }, 1000);
+     }, 5000);
   }
 
   return {
@@ -114,6 +115,7 @@ $(document).ready(function () {
   //hide result and input divs
   document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
   gapi.changePlaceholder();
+  // document.getElementById('go-button').addEventListener( "click", gapi.runAjax );
 
   $("#results").hide();
 
