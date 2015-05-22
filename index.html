@@ -9,7 +9,7 @@
   <title>The Guardian Time Machine</title>
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
-  <link href="http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic" rel='stylesheet' type='text/css'>
 
 </head>
 
@@ -45,60 +45,62 @@
 
   </div>
 
-<!-- carousel area starts here -->
+  <div id="button-area">
 
-<div id="button-area">
+    <ul>
+      <li class="buttons">
+          <form>
+            <input class="prev-next" type="button" value="<" onclick="toggleSlide()" />
+          </form>
+      </li>
 
-  <ul>
-    <li class="buttons">
-        <form>
-          <input class="prev-next" type="button" value="<" onclick="toggleSlide()" />
-        </form>
-    </li>
+      <li>
+        <div id="nav-dot-group">
+          <ul>
+            <li><div class="nav-dots"></div></li>
+            <li><div class="nav-dots"></div></li>
+            <li><div class="nav-dots"></div></li>
+          </ul>
+        </div>
+      </li>
 
-    <li>
-      <div id="nav-dot-group">
-        <ul>
-          <li><div class="nav-dots"></div></li>
-          <li><div class="nav-dots"></div></li>
-          <li><div class="nav-dots"></div></li>
-        </ul>
-      </div>
-    </li>
+      <li class="buttons">
+          <form>
+            <input class="prev-next" type="button" value=">" onclick="toggleSlide(true)" />
+          </form>
+      </li>
 
-    <li class="buttons">
-        <form>
-          <input class="prev-next" type="button" value=">" onclick="toggleSlide(true)" />
-        </form>
-    </li>
+    </ul>
 
-  </ul>
+  </div>
 
-</div>
+  <div class="content">
 
-<div class="content">
-
-  <ul style="list-style-type: none; margin-left: -2em;">
-    <li id="1" class="hideable" style="display: block;">
-      <h1 class="titles"></h1>
-      <h3 class="article-author"></h3>
-      <p class="article-content"></p>
-      <p><a href="" class="read-more">Read more...</a></p>
-    </li>
-    <li id="2" class="hideable">
-      <h1 class="titles"></h1>
-      <h3 class="article-author"></h3>
-      <p class="article-content"></p>
-      <p><a href="" class="read-more">Read more...</a></p>
-    </li>
-    <li id="3" class="hideable">
-      <h1 class="titles"></h1>
-      <h3 class="article-author"></h3>
-      <p class="article-content"></p>
-      <p><a href="" class="read-more">Read more...</a></p>
-    </li>
-  </ul>
-    </div>
+    <ul style="list-style-type: none; margin-left: -2em;">
+      <li id="1" class="hideable" style="display: block;">
+        <h1 class="titles"></h1>
+        <h3 class="article-author"></h3>
+        <img src="" class="article-thumbnail"/>
+        <p class="article-content"></p>
+        <p><a href="" class="read-more" target="_blank">Read more...</a></p>
+      </li>
+      <li id="2" class="hideable">
+        <h1 class="titles"></h1>
+        <h3 class="article-author"></h3>
+        <img src="" class="article-thumbnail"/>
+        <p class="article-content"></p>
+        <p><a href="" class="read-more" target="_blank">Read more...</a></p>
+      </li>
+      <li id="3" class="hideable">
+        <h1 class="titles"></h1>
+        <h3 class="article-author"></h3>
+        <img src="" class="article-thumbnail"/>
+        <p class="article-content"></p>
+        <p><a href="" class="read-more" target="_blank">Read more...</a></p>
+      </li>
+    </ul>
+    
+  </div>
 
  <!--  // <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
   // <script type="text/javascript" src="apitests.js"></script> -->
