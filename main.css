@@ -59,7 +59,7 @@ body {
 }
 
 #go-button:hover {
-  filter: alpha(opacity=30);
+  filter: alpha(opacity = 30);
   opacity: 0.3;
 }
 
@@ -154,6 +154,7 @@ body {
   #go-button {
     font-size: 14px;
     height: 25px;
+    text-align: center;
     width: 40px;
   }
 
