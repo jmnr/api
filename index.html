@@ -44,45 +44,66 @@
 
   </div>
 
-  <div id="results">
+</div>
 
-    <div id="buttons">
-      <form>
-        <input class="prev-next" type="button" value="<" onclick="toggleSlide()" />
-        <input class="prev-next" type="button" value=">" onclick="toggleSlide(true)" />
-      </form>
-    </div>
+<!--carousel area starts here -->
 
-    <div id="nav-dot-group">
-      <ul>
-        <li><div class="nav-dots"></div></li>
-        <li><div class="nav-dots"></div></li>
-        <li><div class="nav-dots"></div></li>
-      </ul>
-    </div>
+<div id="button-area">
 
-    <div id="content">
+  <ul>
 
-      <ul style="list-style-type: none; margin-left: -2em;">
-        <li id="1" class="hideable" style="display: block;">
-          <h1 class="titles"></h1>
-          <h3 class="article-author"></h3>
-          <p class="article-content"></p>
-          <p><a href="" class="read-more">Read more...</a></p>
-        </li>
-        <li id="2" class="hideable">
-          <h1 class="titles"></h1>
-          <h3 class="article-author"></h3>
-          <p class="article-content"></p>
-          <p><a href="" class="read-more">Read more...</a></p>
-        </li>
-        <li id="3" class="hideable">
-          <h1 class="titles"></h1>
-          <h3 class="article-author"></h3>
-          <p class="article-content"></p>
-          <p><a href="" class="read-more">Read more...</a></p>
-        </li>
-      </ul>
+    <li>
+      <div class="buttons">
+        <form>
+          <input class="prev-next" type="button" value="<" onclick="toggleSlide()" />
+        </form>
+      </div>
+    </li>
+
+    <li>
+      <div id="nav-dot-group">
+        <ul>
+          <li><div class="nav-dots" style="border: solid black 3px"></div></li>
+          <li><div class="nav-dots"></div></li>
+          <li><div class="nav-dots"></div></li>
+        </ul>
+      </div>
+    </li>
+
+    <li>
+      <div class="buttons">
+        <form>
+          <input class="prev-next" type="button" value=">" onclick="toggleSlide(true)" />
+        </form>
+      </div>
+    </li>
+
+  </ul>
+
+</div>
+
+<div id="content">
+
+  <ul style="list-style-type: none; margin-left: -2em;">
+    <li id="1" class="hideable" style="display: block;">
+      <h1 class="titles"></h1>
+      <h3 class="article-author"></h3>
+      <p class="article-content"></p>
+      <p><a href="" class="read-more">Read more...</a></p>
+    </li>
+    <li id="2" class="hideable">
+      <h1 class="titles"></h1>
+      <h3 class="article-author"></h3>
+      <p class="article-content"></p>
+      <p><a href="" class="read-more">Read more...</a></p>
+    </li>
+    <li id="3" class="hideable">
+      <h1 class="titles"></h1>
+      <h3 class="article-author"></h3>
+      <p class="article-content"></p>
+      <p><a href="" class="read-more">Read more...</a></p>
+    </li>
+  </ul>
     </div>
 
   </div>
