@@ -17,6 +17,8 @@ var gapi = (function(){
     };
     httpRequest.open("GET", searchurl, true);
     httpRequest.send();
+
+    return httpRequest;
   }
 
   function displayResults (response) {
@@ -128,6 +130,8 @@ var gapi = (function(){
       return function(){
         return gapi.jsonp(func);
       };
+  }
+
   function placeholderStop(){
     document.getElementById('searchTermInput').setAttribute('placeholder', " ");
     document.getElementById('yearInput').setAttribute('placeholder', " ");
@@ -144,7 +148,7 @@ var gapi = (function(){
     changePlaceholder: changePlaceholder,
     jsonp: jsonp,
     displayImages: displayImages,
-    clickHandle: clickHandle
+    clickHandle: clickHandle,
     placeholderStop: placeholderStop
   };
 
