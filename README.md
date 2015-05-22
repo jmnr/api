@@ -2,7 +2,7 @@
 
 The goal is to design a piece of software that uses the guardian's API. 
 
-Here is the [challenge] we were issued. (https://github.com/foundersandcoders/fac5/blob/master/week2/assignment.md).
+Here is the [challenge](https://github.com/foundersandcoders/fac5/blob/master/week2/assignment.md) we were issued.
 
 The website should let you easily search for articles about a given topic from a given year.
 
